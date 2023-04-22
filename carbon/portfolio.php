@@ -82,7 +82,7 @@
                     <nav class="classy-navbar justify-content-between" id="alazeaNav">
 
                         <!-- Nav Brand -->
-                        <a href="index.html" class="nav-brand"><img src="img/core-img/logo.png" alt=""></a>
+                        <a href="index.php" class="nav-brand"><img src="img/core-img/logo.png" alt=""></a>
 
                         <!-- Navbar Toggler -->
                         <div class="classy-navbar-toggler">
@@ -100,18 +100,18 @@
                             <!-- Navbar Start -->
                             <div class="classynav">
                                 <ul>
-                                    <li><a href="index.html">Home</a></li>
-                                    <li><a href="about.html">About</a></li>
+                                    <li><a href="index.php">Home</a></li>
+                                    <li><a href="about.php">About</a></li>
                                     <li><a href="#">Pages</a>
                                         <ul class="dropdown">
-                                            <li><a href="index.html">Home</a></li>
-                                            <li><a href="about.html">About</a></li>
+                                            <li><a href="index.php">Home</a></li>
+                                            <li><a href="about.php">About</a></li>
                                             <li><a href="shop.html">Shop</a>
                                                 <ul class="dropdown">
                                                     <li><a href="shop.html">Shop</a></li>
                                                     <li><a href="shop-details.html">Shop Details</a></li>
-                                                    <li><a href="cart.html">Shopping Cart</a></li>
-                                                    <li><a href="checkout.html">Checkout</a></li>
+                                                    <li><a href="cart.php">Shopping Cart</a></li>
+                                                    <li><a href="checkout.php">Checkout</a></li>
                                                 </ul>
                                             </li>
                                             <li><a href="portfolio.html">Portfolio</a>
@@ -120,18 +120,18 @@
                                                     <li><a href="single-portfolio.html">Portfolio Details</a></li>
                                                 </ul>
                                             </li>
-                                            <li><a href="blog.html">Blog</a>
+                                            <li><a href="blog.php">Blog</a>
                                                 <ul class="dropdown">
-                                                    <li><a href="blog.html">Blog</a></li>
+                                                    <li><a href="blog.php">Blog</a></li>
                                                     <li><a href="single-post.html">Blog Details</a></li>
                                                 </ul>
                                             </li>
-                                            <li><a href="contact.html">Contact</a></li>
+                                            <li><a href="contact.php">Contact</a></li>
                                         </ul>
                                     </li>
                                     <li><a href="shop.html">Shop</a></li>
                                     <li><a href="portfolio.html">Portfolio</a></li>
-                                    <li><a href="contact.html">Contact</a></li>
+                                    <li><a href="contact.php">Contact</a></li>
                                 </ul>
 
                                 <!-- Search Icon -->
@@ -163,7 +163,7 @@
     <div class="breadcrumb-area">
         <!-- Top Breadcrumb Area -->
         <div class="top-breadcrumb-area bg-img bg-overlay d-flex align-items-center justify-content-center" style="background-image: url(img/bg-img/24.jpg);">
-            <h2>Checkout</h2>
+            <h2>PORTFOLIO</h2>
         </div>
 
         <div class="container">
@@ -172,7 +172,7 @@
                     <nav aria-label="breadcrumb">
                         <ol class="breadcrumb">
                             <li class="breadcrumb-item"><a href="#"><i class="fa fa-home"></i> Home</a></li>
-                            <li class="breadcrumb-item active" aria-current="page">Checkout</li>
+                            <li class="breadcrumb-item active" aria-current="page">Portfolio</li>
                         </ol>
                     </nav>
                 </div>
@@ -181,120 +181,221 @@
     </div>
     <!-- ##### Breadcrumb Area End ##### -->
 
-    <!-- ##### Checkout Area Start ##### -->
-    <div class="checkout_area mb-100">
+    <!-- ##### Portfolio Area Start ##### -->
+    <section class="alazea-portfolio-area portfolio-page section-padding-0-100">
         <div class="container">
-            <div class="row justify-content-between">
-                <div class="col-12 col-lg-7">
-                    <div class="checkout_details_area clearfix">
-                        <h5>Billing Details</h5>
-                        <form action="#" method="post">
-                            <div class="row">
-                                <div class="col-md-6 mb-4">
-                                    <label for="first_name">First Name *</label>
-                                    <input type="text" class="form-control" id="first_name" value="" required>
-                                </div>
-                                <div class="col-md-6 mb-4">
-                                    <label for="last_name">Last Name *</label>
-                                    <input type="text" class="form-control" id="last_name" value="" required>
-                                </div>
-                                <div class="col-12 mb-4">
-                                    <label for="email_address">Email Address *</label>
-                                    <input type="email" class="form-control" id="email_address" value="">
-                                </div>
-                                <div class="col-12 mb-4">
-                                    <label for="phone_number">Phone Number *</label>
-                                    <input type="number" class="form-control" id="phone_number" min="0" value="">
-                                </div>
-                                <div class="col-12 mb-4">
-                                    <label for="company">Company Name</label>
-                                    <input type="text" class="form-control" id="company" value="">
-                                </div>
-                                <div class="col-12 mb-4">
-                                    <label for="company">Address *</label>
-                                    <input type="text" class="form-control" id="address" value="">
-                                </div>
-                                <div class="col-md-6 mb-4">
-                                    <label for="city">Town/City *</label>
-                                    <input type="text" class="form-control" id="city" value="">
-                                </div>
-                                <div class="col-md-6 mb-4">
-                                    <label for="state">State/Province *</label>
-                                    <input type="text" class="form-control" id="state" value="">
-                                </div>
-                                <div class="col-md-6 mb-4">
-                                    <label for="country">Country</label>
-                                    <select class="custom-select d-block w-100" id="country">
-                                        <option value="usa">United States</option>
-                                        <option value="uk">United Kingdom</option>
-                                        <option value="ger">Germany</option>
-                                        <option value="fra">France</option>
-                                        <option value="ind">India</option>
-                                        <option value="aus">Australia</option>
-                                        <option value="bra">Brazil</option>
-                                        <option value="cana">Canada</option>
-                                    </select>
-                                </div>
-                                <div class="col-md-6 mb-4">
-                                    <label for="postcode">Postcode/Zip</label>
-                                    <input type="text" class="form-control" id="postcode" value="">
-                                </div>
-                                <div class="col-md-12 mb-4">
-                                    <label for="order-notes">Order Notes</label>
-                                    <textarea class="form-control" id="order-notes" cols="30" rows="10" placeholder="Notes about your order, e.g. special notes for delivery."></textarea>
-                                </div>
-                                <div class="col-12">
-                                    <div class="d-flex align-items-center">
-                                        <!-- Single Checkbox -->
-                                        <div class="custom-control custom-checkbox d-flex align-items-center mr-30">
-                                            <input type="checkbox" class="custom-control-input" id="customCheck1">
-                                            <label class="custom-control-label" for="customCheck1">Ship to a different address?</label>
-                                        </div>
-                                        <!-- Single Checkbox -->
-                                        <div class="custom-control custom-checkbox d-flex align-items-center">
-                                            <input type="checkbox" class="custom-control-input" id="customCheck2">
-                                            <label class="custom-control-label" for="customCheck2">Create an account?</label>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </form>
-                    </div>
-                </div>
-
-                <div class="col-12 col-lg-4">
-                    <div class="checkout-content">
-                        <h5 class="title--">Your Order</h5>
-                        <div class="products">
-                            <div class="products-data">
-                                <h5>Products:</h5>
-                                <div class="single-products d-flex justify-content-between align-items-center">
-                                    <p>Recuerdos Plant</p>
-                                    <h5>$9.99</h5>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="subtotal d-flex justify-content-between align-items-center">
-                            <h5>Subtotal</h5>
-                            <h5>$9.99</h5>
-                        </div>
-                        <div class="shipping d-flex justify-content-between align-items-center">
-                            <h5>Shipping</h5>
-                            <h5>$3.00</h5>
-                        </div>
-                        <div class="order-total d-flex justify-content-between align-items-center">
-                            <h5>Order Total</h5>
-                            <h5>$12.99</h5>
-                        </div>
-                        <div class="checkout-btn mt-30">
-                            <a href="#" class="btn alazea-btn w-100">Place Order</a>
-                        </div>
+            <div class="row">
+                <div class="col-12">
+                    <!-- Section Heading -->
+                    <div class="section-heading text-center">
+                        <h2>OUR PORTFOLIO</h2>
+                        <p>We devote all of our experience and efforts for creation</p>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
-    <!-- ##### Checkout Area End ##### -->
+
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="alazea-portfolio-filter">
+                        <div class="portfolio-filter">
+                            <button class="btn active" data-filter="*">All</button>
+                            <button class="btn" data-filter=".design">Coffee Design</button>
+                            <button class="btn" data-filter=".garden">Garden</button>
+                            <button class="btn" data-filter=".home-design">Home Design</button>
+                            <button class="btn" data-filter=".office-design">Office Design</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row alazea-portfolio">
+
+                <!-- Single Portfolio Area -->
+                <div class="col-12 col-sm-6 col-lg-3 single_portfolio_item design home-design">
+                    <!-- Portfolio Thumbnail -->
+                    <div class="portfolio-thumbnail bg-img" style="background-image: url(img/bg-img/16.jpg);"></div>
+                    <!-- Portfolio Hover Text -->
+                    <div class="portfolio-hover-overlay">
+                        <a href="img/bg-img/16.jpg" class="portfolio-img d-flex align-items-center justify-content-center" title="Portfolio 1">
+                            <div class="port-hover-text">
+                                <h3>Minimal Flower Store</h3>
+                                <h5>Office Plants</h5>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Single Portfolio Area -->
+                <div class="col-12 col-sm-6 col-lg-6 single_portfolio_item garden">
+                    <!-- Portfolio Thumbnail -->
+                    <div class="portfolio-thumbnail bg-img" style="background-image: url(img/bg-img/17.jpg);"></div>
+                    <!-- Portfolio Hover Text -->
+                    <div class="portfolio-hover-overlay">
+                        <a href="img/bg-img/17.jpg" class="portfolio-img d-flex align-items-center justify-content-center" title="Portfolio 2">
+                            <div class="port-hover-text">
+                                <h3>Minimal Flower Store</h3>
+                                <h5>Office Plants</h5>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Single Portfolio Area -->
+                <div class="col-12 col-sm-6 col-lg-3 single_portfolio_item garden office-design">
+                    <!-- Portfolio Thumbnail -->
+                    <div class="portfolio-thumbnail bg-img" style="background-image: url(img/bg-img/19.jpg);"></div>
+                    <!-- Portfolio Hover Text -->
+                    <div class="portfolio-hover-overlay">
+                        <a href="img/bg-img/19.jpg" class="portfolio-img d-flex align-items-center justify-content-center" title="Portfolio 4">
+                            <div class="port-hover-text">
+                                <h3>Minimal Flower Store</h3>
+                                <h5>Office Plants</h5>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Single Portfolio Area -->
+                <div class="col-12 col-sm-6 col-lg-3 single_portfolio_item design office-design">
+                    <!-- Portfolio Thumbnail -->
+                    <div class="portfolio-thumbnail bg-img" style="background-image: url(img/bg-img/20.jpg);"></div>
+                    <!-- Portfolio Hover Text -->
+                    <div class="portfolio-hover-overlay">
+                        <a href="img/bg-img/20.jpg" class="portfolio-img d-flex align-items-center justify-content-center" title="Portfolio 5">
+                            <div class="port-hover-text">
+                                <h3>Minimal Flower Store</h3>
+                                <h5>Office Plants</h5>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Single Portfolio Area -->
+                <div class="col-12 col-sm-6 col-lg-3 single_portfolio_item garden">
+                    <!-- Portfolio Thumbnail -->
+                    <div class="portfolio-thumbnail bg-img" style="background-image: url(img/bg-img/21.jpg);"></div>
+                    <!-- Portfolio Hover Text -->
+                    <div class="portfolio-hover-overlay">
+                        <a href="img/bg-img/21.jpg" class="portfolio-img d-flex align-items-center justify-content-center" title="Portfolio 6">
+                            <div class="port-hover-text">
+                                <h3>Minimal Flower Store</h3>
+                                <h5>Office Plants</h5>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Single Portfolio Area -->
+                <div class="col-12 col-sm-6 col-lg-6 single_portfolio_item home-design">
+                    <!-- Portfolio Thumbnail -->
+                    <div class="portfolio-thumbnail bg-img" style="background-image: url(img/bg-img/22.jpg);"></div>
+                    <!-- Portfolio Hover Text -->
+                    <div class="portfolio-hover-overlay">
+                        <a href="img/bg-img/22.jpg" class="portfolio-img d-flex align-items-center justify-content-center" title="Portfolio 7">
+                            <div class="port-hover-text">
+                                <h3>Minimal Flower Store</h3>
+                                <h5>Office Plants</h5>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Single Portfolio Area -->
+                <div class="col-12 col-sm-6 col-lg-6 single_portfolio_item design home-design">
+                    <!-- Portfolio Thumbnail -->
+                    <div class="portfolio-thumbnail bg-img" style="background-image: url(img/bg-img/16.jpg);"></div>
+                    <!-- Portfolio Hover Text -->
+                    <div class="portfolio-hover-overlay">
+                        <a href="img/bg-img/16.jpg" class="portfolio-img d-flex align-items-center justify-content-center" title="Portfolio 1">
+                            <div class="port-hover-text">
+                                <h3>Minimal Flower Store</h3>
+                                <h5>Office Plants</h5>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Single Portfolio Area -->
+                <div class="col-12 col-sm-6 col-lg-3 single_portfolio_item garden">
+                    <!-- Portfolio Thumbnail -->
+                    <div class="portfolio-thumbnail bg-img" style="background-image: url(img/bg-img/17.jpg);"></div>
+                    <!-- Portfolio Hover Text -->
+                    <div class="portfolio-hover-overlay">
+                        <a href="img/bg-img/17.jpg" class="portfolio-img d-flex align-items-center justify-content-center" title="Portfolio 2">
+                            <div class="port-hover-text">
+                                <h3>Minimal Flower Store</h3>
+                                <h5>Office Plants</h5>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Single Portfolio Area -->
+                <div class="col-12 col-sm-6 col-lg-3 single_portfolio_item garden office-design">
+                    <!-- Portfolio Thumbnail -->
+                    <div class="portfolio-thumbnail bg-img" style="background-image: url(img/bg-img/19.jpg);"></div>
+                    <!-- Portfolio Hover Text -->
+                    <div class="portfolio-hover-overlay">
+                        <a href="img/bg-img/19.jpg" class="portfolio-img d-flex align-items-center justify-content-center" title="Portfolio 4">
+                            <div class="port-hover-text">
+                                <h3>Minimal Flower Store</h3>
+                                <h5>Office Plants</h5>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Single Portfolio Area -->
+                <div class="col-12 col-sm-6 col-lg-3 single_portfolio_item design office-design">
+                    <!-- Portfolio Thumbnail -->
+                    <div class="portfolio-thumbnail bg-img" style="background-image: url(img/bg-img/20.jpg);"></div>
+                    <!-- Portfolio Hover Text -->
+                    <div class="portfolio-hover-overlay">
+                        <a href="img/bg-img/20.jpg" class="portfolio-img d-flex align-items-center justify-content-center" title="Portfolio 5">
+                            <div class="port-hover-text">
+                                <h3>Minimal Flower Store</h3>
+                                <h5>Office Plants</h5>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Single Portfolio Area -->
+                <div class="col-12 col-sm-6 col-lg-3 single_portfolio_item garden">
+                    <!-- Portfolio Thumbnail -->
+                    <div class="portfolio-thumbnail bg-img" style="background-image: url(img/bg-img/21.jpg);"></div>
+                    <!-- Portfolio Hover Text -->
+                    <div class="portfolio-hover-overlay">
+                        <a href="img/bg-img/21.jpg" class="portfolio-img d-flex align-items-center justify-content-center" title="Portfolio 6">
+                            <div class="port-hover-text">
+                                <h3>Minimal Flower Store</h3>
+                                <h5>Office Plants</h5>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Single Portfolio Area -->
+                <div class="col-12 col-sm-6 col-lg-6 single_portfolio_item home-design">
+                    <!-- Portfolio Thumbnail -->
+                    <div class="portfolio-thumbnail bg-img" style="background-image: url(img/bg-img/22.jpg);"></div>
+                    <!-- Portfolio Hover Text -->
+                    <div class="portfolio-hover-overlay">
+                        <a href="img/bg-img/22.jpg" class="portfolio-img d-flex align-items-center justify-content-center" title="Portfolio 7">
+                            <div class="port-hover-text">
+                                <h3>Minimal Flower Store</h3>
+                                <h5>Office Plants</h5>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+    <!-- ##### Portfolio Area End ##### -->
 
     <!-- ##### Footer Area Start ##### -->
     <footer class="footer-area bg-img" style="background-image: url(img/bg-img/3.jpg);">
