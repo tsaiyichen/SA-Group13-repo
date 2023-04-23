@@ -18,7 +18,7 @@ if($method == 1){
         }
     }
 
-    $carbon['tableWare'] = $input[0] * $value['stick'] + $input[1] * $value['bag'] + $input[2] * $value['straw'] + $input[3] * $value['cup'] + $input[4] * $value['spoon'] + $input[5] * $value['paper'];
+    $tablewareCarbon = $input[0] * $value['stick'] + $input[1] * $value['bag'] + $input[2] * $value['straw'] + $input[3] * $value['cup'] + $input[4] * $value['spoon'] + $input[5] * $value['paper'];
     header("Location: count_2.php");
 }elseif($method == 2){
     $input = array($_GET['fplate'], $_GET['fstick'], $_GET['fspoon'], $_GET['fcup'], $_GET['fstraw'], $_GET['fbag']);
@@ -41,7 +41,7 @@ if($method == 1){
     }else{
             $trafficCount -= floor($input[1] / 10);
     }
-    $carbon['traffic'] = $input[0] * $value['car'] + $input[1] * $value['motor'];
+    $trafficCarbon = $input[0] * $value['car'] + $input[1] * $value['motor'];
     header("Location: count_4.php");
 }else{
     $input = array($_GET['train'], $_GET['bus'], $_GET['hsr'], $_GET['mrt'], $_GET['bike'], $_GET['fcar']);
@@ -51,6 +51,52 @@ if($method == 1){
         }
     }
     $point = $trafficCount + $tableWareCount;
-    echo "You get ", $point, "point by carbon reducing!!!";
+
+    $link = @mysqli_connect('localhost', 'root', '12345678', 'sa');
+    $currentUserID = $_SESSION['userID'];
+    $sql = "SELECT point FROM account WHERE userID = $currentUserID";
+    $result = mysqli_query($link, $sql);
+    $row = mysqli_fetch_assoc($result);
+    $updateValue = $row['point'] + $point
+    $sql3 = "INSERT INTO record ('userID', 'tableware', 'traffic') VALUES ('$currentUserID', '$tablewareCarbon', '$trafficCarbon')";
+    $result3 = mysqli_query($link, $sql3);
+    if($updateValue < 0){
+        $sql2 = "UPDATE 'account' SET 'point' = '0' WHERE 'userID' = '$currentUserID'";
+        $result2 = mysqli_query($link, $sql2);
+        if($result2){
+            ?>
+            <script language="javascript">
+                alert("恭喜您獲得<?php echo $updateValue?>，一次性餐具所產生碳排為: <?php echo $tablewareCarbon?>，交通所產生碳排為: <?php echo $trafficCarbon?>。您目前有 0 點 請繼續加油~!");
+                location.href="count_1.php";
+            </script>
+            <?php
+        }else{
+            ?>
+            <script language="javascript">
+                alert("fail!!!");
+                location.href = "count_1.php";
+            </script>
+            <?php
+        }
+    }else{
+        $sql2 = "UPDATE 'account' SET 'point' = '$updateValue' WHERE 'userID' = '$currentUserID'";
+        $result2 = mysqli_query($link, $sql2);
+        if($result2){
+                ?>
+                <script language="javascript">
+                    alert("恭喜您獲得<?php echo $updateValue?>，一次性餐具所產生碳排為: <?php echo $tablewareCarbon?>，交通所產生碳排為: <?php echo $trafficCarbon?>。您目前有 <?php echo $updateValue?> 點 請繼續加油~!");
+                    location.href="count_1.php";
+                </script>
+                <?php
+                }else{
+                    ?>
+                    <script language="javascript">
+                        alert("fail!!!");
+                        location.href = "count_1.php";
+                    </script>
+                    <?php
+                }
+            }
+    }
 }
 ?>
