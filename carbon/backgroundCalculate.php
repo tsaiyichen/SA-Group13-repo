@@ -57,8 +57,8 @@ if($method == 1){
     $sql = "SELECT point FROM account WHERE userID = $currentUserID";
     $result = mysqli_query($link, $sql);
     $row = mysqli_fetch_assoc($result);
-    $updateValue = $row['point'] + $point
-    $sql3 = "INSERT INTO record ('userID', 'tableware', 'traffic') VALUES ('$currentUserID', '$tablewareCarbon', '$trafficCarbon')";
+    $updateValue = $row['point'] + $point;
+    $sql3 = "INSERT INTO record (userID, 'tableware', 'traffic') VALUES ('$currentUserID', '$tablewareCarbon', '$trafficCarbon')";
     $result3 = mysqli_query($link, $sql3);
     if($updateValue < 0){
         $sql2 = "UPDATE 'account' SET 'point' = '0' WHERE 'userID' = '$currentUserID'";
@@ -98,5 +98,4 @@ if($method == 1){
                 }
             }
     }
-}
 ?>
