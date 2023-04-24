@@ -1,10 +1,4 @@
 <?php
-$value['stick'] = 0.05;
-$value['straw'] = 0.004;
-$value['bag'] = 0.057;
-$value['cup'] = 0.008;
-$value['spoon'] = 0.0037;
-$value['paper'] = 0.005;
 $link = @mysqli_connect('localhost', 'root', '12345678', 'sa');
 $currentUserID = $_SESSION['userID'];
 $tablewarePointAddition = 0;
