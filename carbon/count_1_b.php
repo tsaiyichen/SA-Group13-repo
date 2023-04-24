@@ -8,7 +8,7 @@ $value['paper'] = 0.005;
 $link = @mysqli_connect('localhost', 'root', '12345678', 'sa');
 //create the record
 $currentUserID = $_SESSION['userID'];
-$tablewarePointDeduction
+$tablewarePointDeduction = 0;
 $sql = "SELECT MAX(number) AS currentNumber FROM record WHERE userID = '$currentUserID'";
 $result = mysqli_query($link, $sql);
 $row = mysqli_fetch_assoc($result);
