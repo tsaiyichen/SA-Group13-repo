@@ -55,46 +55,13 @@
 
                             <!-- Navbar Start -->
                             <div class="classynav">
-                                <ul>
-                                    <li><a href="index.html">Home</a></li>
-                                    <li><a href="about.php">About</a></li>
-                                    <li><a href="#">Pages</a>
-                                        <ul class="dropdown">
-                                            <li><a href="index.html">Home</a></li>
-                                            <li><a href="about.php">About</a></li>
-                                            <li><a href="shop.html">Shop</a>
-                                                <ul class="dropdown">
-                                                    <li><a href="shop.html">Shop</a></li>
-                                                    <li><a href="shop-details.html">Shop Details</a></li>
-                                                    <li><a href="cart.php">Shopping Cart</a></li>
-                                                    <li><a href="checkout.php">Checkout</a></li>
-                                                </ul>
-                                            </li>
-                                            <li><a href="portfolio.html">Portfolio</a>
-                                                <ul class="dropdown">
-                                                    <li><a href="portfolio.html">Portfolio</a></li>
-                                                    <li><a href="single-portfolio.html">Portfolio Details</a></li>
-                                                </ul>
-                                            </li>
-                                            <li><a href="blog.php">Blog</a>
-                                                <ul class="dropdown">
-                                                    <li><a href="blog.php">Blog</a></li>
-                                                    <li><a href="single-post.html">Blog Details</a></li>
-                                                </ul>
-                                            </li>
-                                            <li><a href="contact.php">Contact</a></li>
-                                        </ul>
-                                    </li>
-                                    <li><a href="shop.html">Shop</a></li>
-                                    <li><a href="portfolio.html">Portfolio</a></li>
-                                    <li><a href="contact.php">Contact</a></li>
-                                </ul>
-
-                                <!-- Search Icon -->
-                                <div id="searchIcon">
-                                    <i class="fa fa-search" aria-hidden="true"></i>
-                                </div>
-
+                                  <ul>
+                                       <li><a href="index.html">首頁</a></li>
+                                       <li><a href="about.html">計算碳排</a></li>
+                                       <li><a href="shop.html">歷史紀錄</a></li>
+                                       <li><a href="portfolio.html">個人資料管理</a></li>
+                                       <li><a href="contact.html"><font style="color:#70c745;">登入</font></a></li>
+                                  </ul>
                             </div>
                             <!-- Navbar End -->
                         </div>
@@ -117,12 +84,12 @@
     <style>
         #nav {
         position: absolute;
-        top: 110px;  right: 100px;  bottom: 50px; left: 150px; z-index: 0;
+        top: 110px;  right: 100px;  bottom: 50px; left: 100px; z-index: 0;
 
          }
          #van {
         position: absolute;
-        top: 110px;  right: 100px;  bottom: 50px; left: 900px;
+        top: 110px;  right: 100px;  bottom: 50px; left: 750px;
 
          }
     </style>
