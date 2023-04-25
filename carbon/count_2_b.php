@@ -17,7 +17,7 @@ $input = array($_GET['fplate'], $_GET['fstick'], $_GET['fspoon'], $_GET['fcup'],
             $tablewarePointAddition++;
         }
     }
-$sql2 = "UPDATE record SET tablewarePointAddition = '$tablewarePointAddition' WHERE number = '$number' AND userID = '$currentUserID'";
+$sql2 = "UPDATE record SET getPoint = getPoint + $tablewarePointAddition WHERE number = '$number' AND userID = '$currentUserID'";
 $result2 = mysqli_query($link, $sql2);
 
 //locate to count_3.php

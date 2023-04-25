@@ -30,7 +30,7 @@ $input = array($_GET['stick'], $_GET['bag'], $_GET['straw'], $_GET['cup'], $_GET
         }
     }
 $tablewareCarbon = $input[0] * $value['stick'] + $input[1] * $value['bag'] + $input[2] * $value['straw'] + $input[3] * $value['cup'] + $input[4] * $value['spoon'] + $input[5] * $value['paper'];
-$sql3 = "UPDATE record set tablewarePointDeduction = '$tablewarePointDeduction', tablewareCarbon = '$tablewareCarbon' WHERE number = '$number' and userID = '$currentUserID'";
+$sql3 = "UPDATE record set getPoint = getPoint - $tablewarePointDeduction, tablewareCarbon = '$tablewareCarbon' WHERE number = '$number' and userID = '$currentUserID'";
 $result3 = mysqli_query($link, $sql3);
 
 //locate to count_2.php

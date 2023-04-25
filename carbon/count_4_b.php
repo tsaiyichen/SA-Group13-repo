@@ -18,7 +18,7 @@ $input = array($_GET['train'], $_GET['bus'], $_GET['hsr'], $_GET['mrt'], $_GET['
             $trafficPointAddition++;
         }
     }
-$sql2 = "UPDATE record set trafficPointAddition = '$trafficPointAddition', WHERE number = '$number' and userID = '$currentUserID'";
+$sql2 = "UPDATE record set getPoint = getPoint + $trafficPointAddition, WHERE number = '$number' and userID = '$currentUserID'";
 $result2 = mysqli_query($link, $sql2);
 
 //settlement
@@ -26,7 +26,7 @@ $result2 = mysqli_query($link, $sql2);
 $sql3 = "SELECT * FROM record WHERE number = '$number' and userID = '$currentUserID'";
 $result3 = mysqli($link, $sql3);
 $row2 = mysqli_fetch_assoc($result);
-$getPoint = $row2['tablewarePointAddition'] - $row2['tablewarePointDeduction'] + $row2['trafficPointAddition'] - $row2['trafficPointDeduction'];
+$getPoint = $row2['getPoint'];
 
 $sql4 = "UPDATE account SET point = point + $getPoint WHERE userID = $currentUserID";
 $result4 = mysqli_query($link, $sql4);

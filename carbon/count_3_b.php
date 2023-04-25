@@ -26,7 +26,7 @@ $input = array($_GET['car'], $_GET['motor']);
     }
     $trafficCarbon = $input[0] * $value['car'] + $input[1] * $value['motor'];
 
-$sql2 = "UPDATE record set trafficPointDeduction = '$trafficPointDeduction', trafficCarbon = '$trafficCarbon' WHERE number = '$number' and userID = '$currentUserID'";
+$sql2 = "UPDATE record set getPoint = getPoint - $trafficPointDeduction, trafficCarbon = '$trafficCarbon' WHERE number = '$number' and userID = '$currentUserID'";
 $result2 = mysqli_query($link, $sql2);
 
 //locate to count_4.php
