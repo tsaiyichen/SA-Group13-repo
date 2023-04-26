@@ -10,6 +10,7 @@ if($row = mysqli_fetch_assoc($result))
 {
     $_SESSION['userID'] = $row['userID'];
     $_SESSION['name'] = $row['name'];
+    $_SESSION['level'] = $row['level'];
     header("location: home.php");
 }
 else{
