@@ -12,10 +12,9 @@ $result=mysqli_query($link,$sql);
 if($result){?>
 <script language="javascript">
     alert('註冊成功');
-    history.back();
+    location.href="login.php";
     </script>
     <?php
-    header("location:login.php");
 }else{?>
    <script language="javascript">
     alert('帳密錯誤');
