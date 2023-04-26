@@ -82,7 +82,7 @@
                     <nav class="classy-navbar justify-content-between" id="alazeaNav">
 
                         <!-- Nav Brand -->
-                        <a href="index.html" class="nav-brand"><img src="img/core-img/logo.png" alt=""></a>
+                        <a href="index.php" class="nav-brand"><img src="img/core-img/logo.png" alt=""></a>
 
                         <!-- Navbar Toggler -->
                         <div class="classy-navbar-toggler">
@@ -100,18 +100,18 @@
                             <!-- Navbar Start -->
                             <div class="classynav">
                                 <ul>
-                                    <li><a href="index.html">Home</a></li>
-                                    <li><a href="about.html">About</a></li>
+                                    <li><a href="index.php">Home</a></li>
+                                    <li><a href="about.php">About</a></li>
                                     <li><a href="#">Pages</a>
                                         <ul class="dropdown">
-                                            <li><a href="index.html">Home</a></li>
-                                            <li><a href="about.html">About</a></li>
+                                            <li><a href="index.php">Home</a></li>
+                                            <li><a href="about.php">About</a></li>
                                             <li><a href="shop.html">Shop</a>
                                                 <ul class="dropdown">
                                                     <li><a href="shop.html">Shop</a></li>
                                                     <li><a href="shop-details.html">Shop Details</a></li>
-                                                    <li><a href="cart.html">Shopping Cart</a></li>
-                                                    <li><a href="checkout.html">Checkout</a></li>
+                                                    <li><a href="cart.php">Shopping Cart</a></li>
+                                                    <li><a href="checkout.php">Checkout</a></li>
                                                 </ul>
                                             </li>
                                             <li><a href="portfolio.html">Portfolio</a>
@@ -120,18 +120,18 @@
                                                     <li><a href="single-portfolio.html">Portfolio Details</a></li>
                                                 </ul>
                                             </li>
-                                            <li><a href="blog.html">Blog</a>
+                                            <li><a href="blog.php">Blog</a>
                                                 <ul class="dropdown">
-                                                    <li><a href="blog.html">Blog</a></li>
+                                                    <li><a href="blog.php">Blog</a></li>
                                                     <li><a href="single-post.html">Blog Details</a></li>
                                                 </ul>
                                             </li>
-                                            <li><a href="contact.html">Contact</a></li>
+                                            <li><a href="contact.php">Contact</a></li>
                                         </ul>
                                     </li>
                                     <li><a href="shop.html">Shop</a></li>
                                     <li><a href="portfolio.html">Portfolio</a></li>
-                                    <li><a href="contact.html">Contact</a></li>
+                                    <li><a href="contact.php">Contact</a></li>
                                 </ul>
 
                                 <!-- Search Icon -->
