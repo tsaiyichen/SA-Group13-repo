@@ -127,8 +127,8 @@
                 <div class="col-12">
                     <nav aria-label="breadcrumb">
                         <ol class="breadcrumb">
-                            <li class="breadcrumb-item"><a href="#"><i class="fa fa-home"></i> Home</a></li>
-                            <li class="breadcrumb-item active" aria-current="page">About</li>
+                            <li class="breadcrumb-item"><a href="#"><i class="fa fa-home"></i>首頁</a></li>
+                            <li class="breadcrumb-item active" aria-current="page">碳排計算</li>
                         </ol>
                     </nav>
                 </div>
