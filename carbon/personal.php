@@ -218,7 +218,7 @@
 
 
                     </div>
-                    <div class="centered-text">82</div>
+                    <div class="centered-text">72</div>
                 </div>
 
 
@@ -244,9 +244,7 @@
                             <h5>密碼:</h5>
                             <h5><input type="submit" class="btn btn-gray btn-block enter-btn" value=" 修改"><br></h5>
                         </div>
-                        <div class="checkout-btn mt-30">
-                            <a href="#" class="btn alazea-btn w-100">Place Order</a>
-                        </div>
+                
                     </div>
                 </div>
             </div>
