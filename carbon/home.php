@@ -54,15 +54,7 @@
                             </div>
 
                             <!-- Navbar Start -->
-                            <div class="classynav">
-                                  <ul>
-                                       <li><a href="index.html">首頁</a></li>
-                                       <li><a href="about.html">計算碳排</a></li>
-                                       <li><a href="shop.html">歷史紀錄</a></li>
-                                       <li><a href="portfolio.html">個人資料管理</a></li>
-                                       <li><a href="contact.html"><font style="color:#70c745;">登入</font></a></li>
-                                  </ul>
-                            </div>
+                        <?php   include "navBar.php";?>
                             <!-- Navbar End -->
                         </div>
                     </nav>
