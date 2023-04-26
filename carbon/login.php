@@ -158,7 +158,7 @@
                          </div>
                          <div class="form-group">
                            <label>密碼</label>
-                           <input type="text" class="form-control p_input" name="password">
+                           <input type="password" class="form-control p_input" name="password">
                          </div>
 
                          <div class="text-center">
