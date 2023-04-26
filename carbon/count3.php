@@ -9,7 +9,7 @@
     <!-- The above 4 meta tags *must* come first in the head; any other head content must come *after* these tags -->
 
     <!-- Title -->
-    <title>Carbon</title>
+    <title>carbon</title>
 
     <!-- Favicon -->
     <link rel="icon" href="img/core-img/favicon.ico">
@@ -212,23 +212,18 @@
 
                                 <div class="single-benefits-area">
                                     <img src="img/core-img/b1.png" alt="">
-                                    <h5>一次性餐具</h5>
+                                    <h5>不環保交通工具</h5>
                                     <div class="purchasenum mt25">
                                         <form action="count_1_b.php" method="get">
-                                            <span>免洗筷：&nbsp;
-                                               <input  type="number" min="1" step="1" value="1" name="stick">&nbsp;雙&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                               紙類容器：&nbsp;
-                                               <input  type="number" min="1" step="1" value="1" name="paper">&nbsp;個<br><br>
+                                            <span>汽車（計程車）：&nbsp;
+                                               <input  type="number" min="1" step="1" value="1" name="car">&nbsp;分鐘&nbsp;&nbsp;&nbsp;&nbsp;
                                             </span>
-                                            <span>塑膠杯：&nbsp;
-                                               <input  type="number" min="1" step="1" value="1" name="cup">&nbsp;個&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                               塑膠吸管：&nbsp;
-                                               <input  type="number" min="1" step="1" value="1" name="straw">&nbsp;個<br><br>
+                                            <br><br>
+                                            <span>機車：&nbsp;
+                                               <input  type="number" min="1" step="1" value="1" name="motor">&nbsp;分鐘&nbsp;&nbsp;&nbsp;&nbsp;
                                             </span>
-                                            <span>塑膠袋：</span>&nbsp;
-                                            <input  type="number" min="1" step="1" value="1" name="bag">&nbsp;個<br><br>
-                                            <span>塑膠湯匙、叉子：</span>&nbsp;
-                                            <input  type="number" min="1" step="1" value="1" name="spoon">&nbsp;個<br><br>
+                                            <br><br>
+
                                             <input type="submit" value="提交" name="提交" style="width: 70px;height: 30px; border-radius: 4px;background-color: #70c745; color: white; border-color:#DDDDDD ;">
                                         </form>
                                     </div>
@@ -250,6 +245,7 @@
         </div>
     </section>
     <!-- ##### About Area End ##### -->
+
 
 
     <!-- ##### All Javascript Files ##### -->
