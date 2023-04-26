@@ -7,7 +7,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <!-- The above 4 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@3.7.1/dist/chart.min.js"></script>
+                <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <!-- Title -->
     <title>carbon</title>
 
@@ -20,6 +21,7 @@
 </head>
 
 <body>
+<?php date_default_timezone_set("Asia/Taipei");?>
     <!-- Preloader -->
     <div class="preloader d-flex align-items-center justify-content-center">
         <div class="preloader-circle"></div>
@@ -143,59 +145,19 @@
             <div class="row justify-content-between">
                 <div class="col-12 col-lg-5">
                     <!-- Section Heading -->
-                    <div class="section-heading">
-                        <h2>ABOUT US</h2>
-                        <p>We are leading in the plants service fields.</p>
-                    </div>
-                    <p>Quisque orci quam, vulputate non commodo finibus, molestie ac ante. Duis in sceleri quesem. Nulla sit amet varius nunc. Maecenas dui, tempeu ullam corper in.</p>
+
 
                     <!-- Progress Bar Content Area -->
                     <div class="alazea-progress-bar mb-50">
-                        <!-- Single Progress Bar -->
-                        <div class="single_progress_bar">
-                            <p>Office plants</p>
-                            <div id="bar1" class="barfiller">
-                                <div class="tipWrap">
-                                    <span class="tip"></span>
-                                </div>
-                                <span class="fill" data-percentage="80"></span>
-                            </div>
-                        </div>
-
-                        <!-- Single Progress Bar -->
-                        <div class="single_progress_bar">
-                            <p>Field manager</p>
-                            <div id="bar2" class="barfiller">
-                                <div class="tipWrap">
-                                    <span class="tip"></span>
-                                </div>
-                                <span class="fill" data-percentage="70"></span>
-                            </div>
-                        </div>
-
-                        <!-- Single Progress Bar -->
-                        <div class="single_progress_bar">
-                            <p>Landscape design</p>
-                            <div id="bar3" class="barfiller">
-                                <div class="tipWrap">
-                                    <span class="tip"></span>
-                                </div>
-                                <span class="fill" data-percentage="85"></span>
-                            </div>
-                        </div>
-
-                        <!-- Single Progress Bar -->
-                        <div class="single_progress_bar">
-                            <p>Garden Care</p>
-                            <div id="bar4" class="barfiller">
-                                <div class="tipWrap">
-                                    <span class="tip"></span>
-                                </div>
-                                <span class="fill" data-percentage="65"></span>
-                            </div>
-                        </div>
-                        <input type="button" value="詳細資料" style="width: 100px;height: 30px; border-radius: 4px;background-color: #70c745; color: white; border-color: #DDDDDD;">
-
+                        <canvas id="myChart"></canvas>
+                                                <script src="myChart.js"></script>
+                                                <form action="count4.php" method="get">
+                                                                        <input type="hidden" value="display" name="display">
+                                                                        <input type="hidden" value="<?php echo date('Y-m-d');?>" name="currentDate">
+                                                                        <input type="submit" value="詳細資料" style="width: 100px;height: 30px; border-radius: 4px;background-color: #70c745; color: white; border-color: #DDDDDD;">
+                                                                        </form>
+                                                <?php if($_GET['display'] == "display"){
+                                                                        include "recordToday.php";}?>
 
                     </div>
                 </div>
@@ -226,9 +188,9 @@
                                                <input  type="number" min="0" step="1" value="1" name="mrt">&nbsp;分鐘<br><br>
                                             </span>
                                             <span>腳踏車：</span>&nbsp;
-                                            <input  type="number" min="1" step="1" value="1" name="bike">&nbsp;分鐘<br><br>
+                                            <input  type="number" min="0" step="1" value="1" name="bike">&nbsp;分鐘<br><br>
                                             <span>電動汽、機車：</span>&nbsp;
-                                            <input  type="number" min="1" step="1" value="1" name="fcar">&nbsp;分鐘<br><br>
+                                            <input  type="number" min="0" step="1" value="1" name="fcar">&nbsp;分鐘<br><br>
                                             <input type="submit" value="提交" name="提交" style="width: 70px;height: 30px; border-radius: 4px;background-color: #70c745; color: white; border-color:#DDDDDD ;">
                                         </form>
                                     </div>
