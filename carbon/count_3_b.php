@@ -2,7 +2,7 @@
 $value['car'] = 0.3;
 $value['motor'] = 0.142;
 $link = @mysqli_connect('localhost', 'root', '12345678', 'sa');
-$currentUserID = "yyt0313";
+$currentUserID = $_SESSION['userID'];
 $trafficPointDeduction = 0;
 //Find the record address
 

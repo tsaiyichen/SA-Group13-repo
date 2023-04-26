@@ -7,7 +7,7 @@ $value['spoon'] = 0.0037;
 $value['paper'] = 0.005;
 $link = @mysqli_connect('localhost', 'root', '12345678', 'sa');
 //create the record
-$currentUserID = "yyt0313";
+$currentUserID = $_SESSION['userID'];
 $tablewarePointDeduction = 0;
 $sql = "SELECT * FROM record WHERE userID = '$currentUserID'";
 $result = mysqli_query($link, $sql);

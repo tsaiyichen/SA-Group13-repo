@@ -1,6 +1,6 @@
 <?php
 $link = @mysqli_connect('localhost', 'root', '12345678', 'sa');
-$currentUserID = "yyt0313";
+$currentUserID = $_SESSION['userID'];
 date_default_timezone_set("Asia/Taipei");
 $currentDate = date("Y-m-d");
 $sql = "SELECT * FROM record WHERE userID = '$currentUserID' and recordTime LIKE '$currentDate%'";

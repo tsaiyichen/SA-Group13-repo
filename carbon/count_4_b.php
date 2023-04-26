@@ -1,6 +1,6 @@
 <?php
 $link = @mysqli_connect('localhost', 'root', '12345678', 'sa');
-$currentUserID = "yyt0313";
+$currentUserID = $_SESSION['userID'];
 $trafficPointAddition = 0;
 
 //Find the record address
