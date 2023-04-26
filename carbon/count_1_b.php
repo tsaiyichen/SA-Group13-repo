@@ -7,20 +7,21 @@ $value['spoon'] = 0.0037;
 $value['paper'] = 0.005;
 $link = @mysqli_connect('localhost', 'root', '12345678', 'sa');
 //create the record
-$currentUserID = $_SESSION['userID'];
+$currentUserID = "yyt0313";
 $tablewarePointDeduction = 0;
-$sql = "SELECT MAX(number) AS currentNumber FROM record WHERE userID = '$currentUserID'";
+$sql = "SELECT * FROM record WHERE userID = '$currentUserID'";
 $result = mysqli_query($link, $sql);
-$row = mysqli_fetch_assoc($result);
-$count = $row['currentNumber'];
-if($count == null){
+$count = 0;
+While($row = mysqli_fetch_assoc($result)){
+    $count++;
+}
+if($count == 0){
     $number = 1;
 }else{
     $number = $count + 1;
 }
 $sql2 = "INSERT INTO record (number, userID) VALUES ('$number', '$currentUserID')";
-$result2 = mysqli_query($link, $sql);
-
+$result2 = mysqli_query($link, $sql2);
 //calculate the carbon
 
 $input = array($_GET['stick'], $_GET['bag'], $_GET['straw'], $_GET['cup'], $_GET['spoon'], $_GET['paper']);
@@ -35,5 +36,5 @@ $result3 = mysqli_query($link, $sql3);
 
 //locate to count_2.php
 
-    header("Location: count_2.php");
+    header("Location: count2.php");
 ?>

@@ -214,13 +214,13 @@
                                     <img src="img/core-img/b1.png" alt="">
                                     <h5>不環保交通工具</h5>
                                     <div class="purchasenum mt25">
-                                        <form action="count_1_b.php" method="get">
+                                        <form action="count_3_b.php" method="get">
                                             <span>汽車（計程車）：&nbsp;
-                                               <input  type="number" min="1" step="1" value="1" name="car">&nbsp;分鐘&nbsp;&nbsp;&nbsp;&nbsp;
+                                               <input  type="number" min="0" step="1" value="1" name="car">&nbsp;分鐘&nbsp;&nbsp;&nbsp;&nbsp;
                                             </span>
                                             <br><br>
                                             <span>機車：&nbsp;
-                                               <input  type="number" min="1" step="1" value="1" name="motor">&nbsp;分鐘&nbsp;&nbsp;&nbsp;&nbsp;
+                                               <input  type="number" min="0" step="1" value="1" name="motor">&nbsp;分鐘&nbsp;&nbsp;&nbsp;&nbsp;
                                             </span>
                                             <br><br>
 

@@ -2,7 +2,7 @@
 $value['car'] = 0.3;
 $value['motor'] = 0.142;
 $link = @mysqli_connect('localhost', 'root', '12345678', 'sa');
-$currentUserID = $_SESSION['userID'];
+$currentUserID = "yyt0313";
 $trafficPointDeduction = 0;
 //Find the record address
 
@@ -30,5 +30,5 @@ $sql2 = "UPDATE record set getPoint = getPoint - $trafficPointDeduction, traffic
 $result2 = mysqli_query($link, $sql2);
 
 //locate to count_4.php
-    header("Location: count_4.php");
+    header("Location: count4.php");
 ?>

@@ -1,6 +1,6 @@
 <?php
 $link = @mysqli_connect('localhost', 'root', '12345678', 'sa');
-$currentUserID = $_SESSION['userID'];
+$currentUserID = "yyt0313";
 $tablewarePointAddition = 0;
 //Find the record address
 
@@ -22,5 +22,5 @@ $result2 = mysqli_query($link, $sql2);
 
 //locate to count_3.php
 
-    header("Location: count_3.php");
+    header("Location: count3.php");
 ?>
