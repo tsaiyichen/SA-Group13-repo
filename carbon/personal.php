@@ -16,6 +16,16 @@
 
     <!-- Core Stylesheet -->
     <link rel="stylesheet" href="style.css">
+    <style>
+          dialog {
+            border-radius: 10px;
+            width: 80%;
+            max-width: 500px;
+            margin: auto;
+            padding: 20px;
+            box-sizing: border-box;
+          }
+        </style>
 
 </head>
 
@@ -177,31 +187,72 @@
 
 
                     </div>
-                    <div class="centered-text">72</div>
+                    <?php
+                                                $link = @mysqli_connect('localhost', 'root', '12345678', 'sa');
+                                                $currentUserID = $_SESSION['userID'];
+                                                $sql = "SELECT * FROM account WHERE userID = '$currentUserID'";
+                                                $result = mysqli_query($link, $sql);
+                                                $row = mysqli_fetch_assoc($result);
+                                            ?>
+                    <div class="centered-text"><?php echo $row['point'];?></div>
                 </div>
-
 
 
                 <div class="col-12 col-lg-4">
                     <div class="checkout-content">
                         <h5 class="title--">資料管理</h5>
                         <div class="products">
+
                             <div class="products-data">
                                 <div class="subtotal d-flex justify-content-between align-items-center">
-                                    <h5>名字:</h5>
-                                    <h5><input type="submit" class="btn btn-gray btn-block enter-btn" value=" 修改"><br></h5>
+                                    <h5>名字:&nbsp&nbsp<?php echo $row['name'];?></h5>
+                                    <h5><input type="button" class="btn btn-gray btn-block enter-btn" value=" 修改" onclick="openNameDialog()"><br></h5>
+                              <dialog id="nameDialog">
+                                                              <p>目前名字為: <?php echo $row['name']?></p>
+                                                              <form action="personal_b.php" method="get">
+                                                              修改為: <input type="text" name="newName" required>
+                                                              <input type="hidden" name="method" value="name">
+                                                              <input type="submit" value="確認修改">
+                                                              <br><input type="button" onclick="closeNameDialog()" value="關閉">
+                                                              </form>
+                                                          </dialog>
+                                                          <script src="nameDialog.js">
+                                                              </script>
                                 </div>
                         <div class="subtotal d-flex justify-content-between align-items-center">
-                            <h5>帳號:</h5>
-                            <h5><input type="submit" class="btn btn-gray btn-block enter-btn" value=" 修改"><br></h5>
+                            <h5>帳號:&nbsp&nbsp<?php echo $row['userID'];?></h5>
+
                         </div>
                         <div class="shipping d-flex justify-content-between align-items-center">
-                            <h5>電話:</h5>
-                            <h5><input type="submit" class="btn btn-gray btn-block enter-btn" value=" 修改"><br></h5>
+                            <h5>電話:&nbsp&nbsp<?php echo $row['phone'];?></h5>
+                            <h5><input type="button" class="btn btn-gray btn-block enter-btn" value=" 修改" onclick="openPhoneDialog()"><br></h5>
+                            <dialog id="phoneDialog">
+                                <p>目前電話為: <?php echo $row['phone']?></p>
+                                <form action="personal_b.php" method="get">
+                                修改為: <input type="text" name="newPhone" required>
+                                <input type="hidden" name="method" value="phone">
+                                <input type="submit" value="確認修改">
+                                <br><input type="button" onclick="closePhoneDialog()" value="關閉">
+                                </form>
+                            </dialog>
+                            <script src="phoneDialog.js">
+                                </script>
+
                         </div>
                         <div class="order-total d-flex justify-content-between align-items-center">
-                            <h5>密碼:</h5>
-                            <h5><input type="submit" class="btn btn-gray btn-block enter-btn" value=" 修改"><br></h5>
+                            <h5>密碼:&nbsp&nbsp<?php echo $row['password'];?></h5>
+                            <h5><input type="button" class="btn btn-gray btn-block enter-btn" value=" 修改" onclick="openPasswordDialog()"><br></h5>
+                            <dialog id="passwordDialog">
+                                                    <p>目前密碼為: <?php echo $row['password']?></p>
+                                                    <form action="personal_b.php" method="get">
+                                                    修改為: <input type="text" name="newPassword" required>
+                                                    <input type="hidden" name="method" value="password">
+                                                    <input type="submit" value="確認修改">
+                                                    <br><input type="button" onclick="closePasswordDialog()" value="關閉">
+                                                    </form>
+                                                </dialog>
+                                                <script src="passwordDialog.js">
+                                                    </script>
                         </div>
                 
                     </div>
