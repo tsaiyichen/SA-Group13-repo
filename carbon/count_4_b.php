@@ -45,14 +45,14 @@ if($row['point'] < 0){
         ?>
         <script language="javascript">
             alert("恭喜您獲得 <?php echo $getPoint?> 點，一次性餐具所產生碳排為: <?php echo $row2['tablewareCarbon']?>，交通所產生碳排為: <?php echo $row2['trafficCarbon']?>。您目前有 0 點 請繼續加油~!");
-            location.href="count1.php";
+            location.href="personal.php";
         </script>
         <?php
     }else{
         ?>
         <script language="javascript">
             alert("fail!!");
-            location.href="count1.php";
+            location.href="personal.php";
         </script>
         <?php
     }

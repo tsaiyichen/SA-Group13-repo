@@ -140,19 +140,19 @@
                                     <div class="purchasenum mt25">
                                         <form action="count_1_b.php" method="get">
                                             <span>免洗筷：&nbsp;
-                                               <input  type="number" min="0" step="1" value="1" name="stick">&nbsp;雙&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                               <input  type="number" min="0" step="1" value="0" name="stick">&nbsp;雙&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                                                紙類容器：&nbsp;
-                                               <input  type="number" min="0" step="1" value="1" name="paper">&nbsp;個<br><br>
+                                               <input  type="number" min="0" step="1" value="0" name="paper">&nbsp;個<br><br>
                                             </span>
                                             <span>塑膠杯：&nbsp;
-                                               <input  type="number" min="0" step="1" value="1" name="cup">&nbsp;個&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                               <input  type="number" min="0" step="1" value="0" name="cup">&nbsp;個&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                                                塑膠吸管：&nbsp;
-                                               <input  type="number" min="0" step="1" value="1" name="straw">&nbsp;個<br><br>
+                                               <input  type="number" min="0" step="1" value="0" name="straw">&nbsp;個<br><br>
                                             </span>
                                             <span>塑膠袋：</span>&nbsp;
-                                            <input  type="number" min="0" step="1" value="1" name="bag">&nbsp;個<br><br>
+                                            <input  type="number" min="0" step="1" value="0" name="bag">&nbsp;個<br><br>
                                             <span>塑膠湯匙、叉子：</span>&nbsp;
-                                            <input  type="number" min="0" step="1" value="1" name="spoon">&nbsp;個<br><br>
+                                            <input  type="number" min="0" step="1" value="0" name="spoon">&nbsp;個<br><br>
                                             <input type="submit" value="提交" name="提交" style="width: 70px;height: 30px; border-radius: 4px;background-color: #70c745; color: white; border-color:#DDDDDD ;">
                                         </form>
                                     </div>

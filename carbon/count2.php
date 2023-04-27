@@ -137,14 +137,14 @@
                                     <div class="purchasenum mt25">
                                         <form action="count_2_b.php" method="get">
                                             <span>環保筷：&nbsp;
-                                               <input  type="number" min="0" step="1" value="1" name="fstick">&nbsp;雙&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                               <input  type="number" min="0" step="1" value="0" name="fstick">&nbsp;雙&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                                                環保碗盤：&nbsp;
-                                               <input  type="number" min="0" step="1" value="1" name="fplate">&nbsp;個<br><br>
+                                               <input  type="number" min="0" step="1" value="0" name="fplate">&nbsp;個<br><br>
                                             </span>
                                             <span>環保杯：&nbsp;
-                                               <input  type="number" min="0" step="1" value="1" name="fcup">&nbsp;個&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                               <input  type="number" min="0" step="1" value="0" name="fcup">&nbsp;個&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                                                環保吸管：&nbsp;
-                                               <input  type="number" min="0" step="1" value="1" name="fstraw">&nbsp;個<br><br>
+                                               <input  type="number" min="0" step="1" value="0" name="fstraw">&nbsp;個<br><br>
                                             </span>
                                             <span>環保袋：</span>&nbsp;
                                             <input  type="number" min="0" step="1" value="1" name="fbag">&nbsp;個<br><br>
