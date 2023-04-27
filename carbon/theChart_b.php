@@ -1,10 +1,11 @@
 <?php
     $link = @mysqli_connect('localhost', 'root', '12345678', 'sa');
+    session_start();
     $tableSum = 0;
     $trafficSum = 0;
     $datatable = [];
     $dataTraffic = [];
-    $currentUserID = "yyt0313";
+    $currentUserID = $_SESSION['userID'];
     date_default_timezone_set("Asia/Taipei");
     $currentYear = date('Y');
     $sql = "SELECT * FROM record WHERE userID = '$currentUserID' and recordTime LIKE '$currentYear-01%'";

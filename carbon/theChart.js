@@ -53,6 +53,7 @@ $.ajax({
         })
     },
     error: function() { // 當取得資料失敗時
-        alert("取得資料失敗！");
+        alert("error！");
+        location.href = "home.php";
     }
 });

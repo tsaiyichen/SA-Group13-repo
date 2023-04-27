@@ -52,7 +52,7 @@
                     <nav class="classy-navbar justify-content-between" id="alazeaNav">
 
                         <!-- Nav Brand -->
-                        <a href="index.html" class="nav-brand"><img src="img/core-img/logo.png" alt=""></a>
+                        <a href="home.php" class="nav-brand"><img src="img/core-img/logo.png" alt=""></a>
 
                         <!-- Navbar Toggler -->
                         <div class="classy-navbar-toggler">
@@ -68,45 +68,7 @@
                             </div>
 
                             <!-- Navbar Start -->
-                            <div class="classynav">
-                                <ul>
-                                    <li><a href="index.html">Home</a></li>
-                                    <li><a href="about.php">About</a></li>
-                                    <li><a href="#">Pages</a>
-                                        <ul class="dropdown">
-                                            <li><a href="index.html">Home</a></li>
-                                            <li><a href="about.php">About</a></li>
-                                            <li><a href="shop.html">Shop</a>
-                                                <ul class="dropdown">
-                                                    <li><a href="shop.html">Shop</a></li>
-                                                    <li><a href="shop-details.html">Shop Details</a></li>
-                                                    <li><a href="cart.php">Shopping Cart</a></li>
-                                                    <li><a href="checkout.php">Checkout</a></li>
-                                                </ul>
-                                            </li>
-                                            <li><a href="portfolio.html">Portfolio</a>
-                                                <ul class="dropdown">
-                                                    <li><a href="portfolio.html">Portfolio</a></li>
-                                                    <li><a href="single-portfolio.html">Portfolio Details</a></li>
-                                                </ul>
-                                            </li>
-                                            <li><a href="blog.php">Blog</a>
-                                                <ul class="dropdown">
-                                                    <li><a href="blog.php">Blog</a></li>
-                                                    <li><a href="single-post.html">Blog Details</a></li>
-                                                </ul>
-                                            </li>
-                                            <li><a href="contact.php">Contact</a></li>
-                                        </ul>
-                                    </li>
-                                    <li><a href="shop.html">Shop</a></li>
-                                    <li><a href="portfolio.html">Portfolio</a></li>
-                                    <li><a href="contact.php">Contact</a></li>
-                                </ul>
-
-
-
-                            </div>
+                            <?php include "navBar.php"?>
                             <!-- Navbar End -->
                         </div>
                     </nav>
@@ -154,20 +116,20 @@
                          <form action="sign_b.php" method="get" >
                          <div class="form-group">
                            <label>姓名</label>
-                           <input type="text" class="form-control p_input" name="name">
+                           <input type="text" class="form-control p_input" name="name" required>
                          </div>
                          <div class="form-group">
                            <label>電話</label>
-                           <input type="text" class="form-control p_input" name="phone">
+                           <input type="text" class="form-control p_input" name="phone" required>
                          </div>
 
                          <div class="form-group">
                            <label>帳號</label>
-                           <input type="text" class="form-control p_input" name="userID">
+                           <input type="text" class="form-control p_input" name="userID" required>
                          </div>
                          <div class="form-group">
                            <label>密碼</label>
-                           <input type="password" class="form-control p_input" name="password">
+                           <input type="text" class="form-control p_input" name="password" required>
                          </div>
 
                          <div class="text-center">

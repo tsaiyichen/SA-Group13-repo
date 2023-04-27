@@ -4,7 +4,7 @@ if($_SESSION['level'] == 'user'){
 ?>
 <div class="classynav">
     <ul>
-    <li><a href="login.php">首頁</a></li>
+    <li><a href="home.php">首頁</a></li>
     <li><a href="count1.php">計算碳排</a></li>
     <li><a href="history.php">歷史紀錄</a></li>
     <li><a href="personal.php">個人資料管理</a></li>
