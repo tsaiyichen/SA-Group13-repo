@@ -1,4 +1,5 @@
 <?php
+session_start();
 $link = @mysqli_connect('localhost', 'root', '12345678', 'sa');
 $currentUserID = $_SESSION['userID'];
 date_default_timezone_set("Asia/Taipei");

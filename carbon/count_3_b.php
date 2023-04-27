@@ -1,4 +1,5 @@
 <?php
+session_start();
 $value['car'] = 0.3;
 $value['motor'] = 0.142;
 $link = @mysqli_connect('localhost', 'root', '12345678', 'sa');

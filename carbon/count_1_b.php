@@ -6,6 +6,7 @@ $value['cup'] = 0.008;
 $value['spoon'] = 0.0037;
 $value['paper'] = 0.005;
 $link = @mysqli_connect('localhost', 'root', '12345678', 'sa');
+session_start();
 //create the record
 $currentUserID = $_SESSION['userID'];
 $tablewarePointDeduction = 0;
