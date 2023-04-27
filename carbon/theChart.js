@@ -10,21 +10,21 @@ $.ajax({
             labels: ["1月", "2月", "3月", "4月", "5月", "6月", "7月", "8月", "9月", "10月", "11月", "12月"],
             datasets: [
                 {
-                    label: "資料 1",
+                    label: "使用一次性餐具產生之碳排放量(kg/CO2e)",
                     backgroundColor: "rgba(75,192,192,0.4)",
                     borderColor: "rgba(75,192,192,1)",
                     borderWidth: 1,
                     data: response.table
                 },
                 {
-                    label: "資料 2",
+                    label: "交通所產生之碳排放量(kg/CO2e)",
                     backgroundColor: "rgba(255, 99, 132, 0.4)",
                     borderColor: "rgba(255,99,132,1)",
                     borderWidth: 1,
                     data: response.traffic
                 },
                 {
-                    label: "總和",
+                    label: "總和(kg/CO2e)",
                     type: "line",
                     fill: false,
                     borderColor: "rgba(255, 206, 86, 1)",

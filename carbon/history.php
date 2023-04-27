@@ -7,7 +7,8 @@
      <meta http-equiv="X-UA-Compatible" content="IE=edge">
      <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
      <!-- The above 4 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-
+     <script src="https://cdn.jsdelivr.net/npm/chart.js@3.7.1/dist/chart.min.js"></script>
+     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
      <!-- Title -->
      <title>carbon</title>
 
@@ -141,8 +142,8 @@
      <section class="single_product_details_area mb-50">
          <div class="produts-details--content mb-50">
              <div class="container">
-
-
+                <canvas id="myChart"></canvas>
+                <script src="theChart.js"></script>
              </div>
          </div>
 
