@@ -1,7 +1,7 @@
 <?php
 session_start();
-$value['car'] = 0.242;
-$value['motor'] = 0.142;
+$value['car'] = 0.18;
+$value['motor'] = 0.092;
 $link = @mysqli_connect('localhost', 'root', '12345678', 'sa');
 $currentUserID = $_SESSION['userID'];
 $trafficPointDeduction = 0;
