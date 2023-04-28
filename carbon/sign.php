@@ -129,7 +129,7 @@
                          </div>
                          <div class="form-group">
                            <label>密碼</label>
-                           <input type="text" class="form-control p_input" name="password" required>
+                           <input type="password" class="form-control p_input" name="password" required>
                          </div>
 
                          <div class="text-center">
