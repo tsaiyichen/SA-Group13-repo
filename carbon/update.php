@@ -59,6 +59,7 @@ if(isset($_POST['submit'])){
 
     if(move_uploaded_file($egg_tmp, $egg_target_file)){
         $new_egg_name = $egg_target_dir . $currentMonster . '.' . $egg_ext;
+        rename($egg_target_file, $new_egg_name);
         echo "The file " . basename($egg_name) . " has been uploaded as " . basename($new_egg_name) . ".";
     }
 /*
