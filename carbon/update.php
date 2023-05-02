@@ -81,7 +81,7 @@ $link = @mysqli_connect('localhost', 'root', '12345678', 'sa');
         rename($egg_target_file, $new_egg_name); rename($eggDone_target_file, $new_eggDone_name);rename($monster_target_file, $new_monster_name);
        ?>
        <script language="javascript">
-       alert("The file has been uploaded as <?php echo basename($new_egg_name);?>");
+       alert("上傳成功!!怪獸名: <?php echo $name;?>   存檔為: <?php echo basename($new_egg_name);?>");
        location.href="goods.php";
        </script><?php
     }
