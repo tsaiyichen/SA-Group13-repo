@@ -1,18 +1,21 @@
 <?php
 $link = @mysqli_connect('localhost', 'root', '12345678', 'sa');
-$name = $_POST['name'];
-$price = $_POST['price'];
-$introduction = $_POST['introduction'];
-$sql = "INSERT INTO monster (name, introduction, price) VALUES ('$name', '$price', '$introduction')";
-$result = mysqli_query($link, $sql);
 
-$sql2 = "SELECT MAX(monsterID) as currentMonster FROM monster";
-$result2 = mysqli_query($link, $sql2);
 
-$row = mysqli_fetch_assoc($result2);
-$currentMonster = $row['$currentMonster'];
 
-if(isset($_POST['submit'])){
+    $name = $_POST['name'];
+    $price = $_POST['price'];
+    $introduction = $_POST['introduction'];
+    $sql = "INSERT INTO monster (name, introduction, price) VALUES ('$name', '$introduction', '$price')";
+    $result = mysqli_query($link, $sql);
+
+    $sql = "SELECT MAX(monsterID) FROM monster";
+    $result = mysqli_query($link, $sql);
+
+
+    $currentMonster = mysqli_fetch_array($result)[0];
+
+
     $egg_name = $_FILES['egg']['name'];
     $egg_size = $_FILES['egg']['size'];
     $egg_tmp = $_FILES['egg']['tmp_name'];
@@ -33,15 +36,29 @@ if(isset($_POST['submit'])){
 
     $extensions= array("jpg");
 
-    if(in_array($egg_ext,$extensions)=== false){ ?>
+    if(in_array($egg_ext,$extensions) === false){ ?>
     <script language="javascript">
-        alert("extension not allowed, please choose a JPG file.");
+        alert("extension not allowed, please choose a JPG file(egg).");
         location.href = "goods.php";
     </script>
         <?php
     }
+    if(in_array($eggDone_ext,$extensions) === false){ ?>
+        <script language="javascript">
+            alert("extension not allowed, please choose a JPG file(eggDone).");
+            location.href = "goods.php";
+        </script>
+            <?php
+        }
+    if(in_array($monster_ext,$extensions) === false){ ?>
+        <script language="javascript">
+            alert("extension not allowed, please choose a JPG file(monster).");
+            location.href = "goods.php";
+        </script>
+        <?php
+        }
 
-    if($file_size > 2097152) {  ?>
+    if(($egg_size OR $eggDone_size OR $monster_size) > 2097152) {  ?>
     <script language="javascript">
         alert("File size must be less than 2 MB!!");
         location.href = "goods.php";
@@ -57,31 +74,16 @@ if(isset($_POST['submit'])){
     $eggDone_target_file = $eggDone_target_dir . basename($eggDone_name);
     $monster_target_file = $monster_target_dir . basename($monster_name);
 
-    if(move_uploaded_file($egg_tmp, $egg_target_file)){
+    if(move_uploaded_file($egg_tmp, $egg_target_file) AND move_uploaded_file($eggDone_tmp, $eggDone_target_file) AND move_uploaded_file($monster_tmp, $monster_target_file)){
         $new_egg_name = $egg_target_dir . $currentMonster . '.' . $egg_ext;
-        rename($egg_target_file, $new_egg_name);
-        echo "The file " . basename($egg_name) . " has been uploaded as " . basename($new_egg_name) . ".";
+        $new_eggDone_name = $eggDone_target_dir . $currentMonster . '.' . $eggDone_ext;
+        $new_monster_name = $monster_target_dir . $currentMonster . '.' . $monster_ext;
+        rename($egg_target_file, $new_egg_name); rename($eggDone_target_file, $new_eggDone_name);rename($monster_target_file, $new_monster_name);
+       ?>
+       <script language="javascript">
+       alert("The file has been uploaded as <?php echo basename($new_egg_name);?>");
+       location.href="goods.php";
+       </script><?php
     }
-/*
-    if (move_uploaded_file($file_tmp, $target_file)) {
-        $upload_count = count(glob($target_dir . '*'));
-    $new_file_name = $target_dir . $upload_count . '.' . $file_ext;
-    echo "The file " . basename($file_name) . " has been uploaded as " . basename($new_file_name) . ".";
-    } else {
-        echo "Sorry, there was an error uploading your file.";
-    }*/
-}
+
 ?>
-
-<html>
-<body>
-
-<form action="" method="post" enctype="multipart/form-data">
-    <input type="text" name="price">
-    <input type="text" name="name">
-    <textarea name="introduction"></textarea>
-    <input type="file" name="egg">
-    <input type="submit" name="submit" value="Upload">
-</form>
-</body>
-</html>
