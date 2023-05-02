@@ -151,7 +151,7 @@
                 <div class="col-12 col-md-6">
                     <!-- Section Heading -->
                     <div class="section-heading">
-                        <form method="get" action="shop_b.php" style="font-size: 20px;"><br><br>
+                        <form method="get" action="announce_b.php" style="font-size: 20px;"><br><br>
                             標題：<br>
                             <input type="text" name="title" required style="width:450px;"><br><br>
                             內文：<br>
