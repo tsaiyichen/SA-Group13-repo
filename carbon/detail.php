@@ -1,3 +1,6 @@
+<?php
+session_start();
+$link = @mysqli_connect('localhost', 'root', '12345678', 'sa'); ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -16,16 +19,16 @@
 
     <!-- Core Stylesheet -->
     <link rel="stylesheet" href="style.css">
-        <!-- plugins:css -->
-        <link rel="stylesheet" href="../../assets/vendors/mdi/css/materialdesignicons.min.css">
-        <link rel="stylesheet" href="../../assets/vendors/css/vendor.bundle.base.css">
-        <!-- endinject -->
-        <!-- Plugin css for this page -->
-        <!-- End plugin css for this page -->
-        <!-- inject:css -->
-        <!-- endinject -->
-        <!-- Layout styles -->
-        <link rel="stylesheet" href="../../assets/css/style.css">
+    <!-- plugins:css -->
+    <link rel="stylesheet" href="../../assets/vendors/mdi/css/materialdesignicons.min.css">
+    <link rel="stylesheet" href="../../assets/vendors/css/vendor.bundle.base.css">
+    <!-- endinject -->
+    <!-- Plugin css for this page -->
+    <!-- End plugin css for this page -->
+    <!-- inject:css -->
+    <!-- endinject -->
+    <!-- Layout styles -->
+    <link rel="stylesheet" href="../../assets/css/style.css">
 
 
 </head>
@@ -74,8 +77,8 @@
                     </nav>
 
 
+                </div>
             </div>
-        </div>
     </header>
     <!-- ##### Header Area End ##### -->
 
@@ -90,60 +93,79 @@
 
 
 
-                            <!-- Post Content -->
+                <!-- Post Content -->
 
-    <style>
-       #table-wrapper {
-           position: absolute;
-           top: 40%;
-           left: 50%;
-           transform: translate(-50%, -50%);
-        }
-        span {
-                      font-weight: normal;
-                      font-size:20px;
-                      color: gray;
-                     }
-    </style>
-    <style>
-    .btn-green {
-      background-color: green;
-      color: white;
-    }
-    </style>
+                <style>
+                    #table-wrapper {
+                        position: absolute;
+                        top: 20%;
+                        left: 50%;
+                        transform: translate(-50%, -50%);
+                        width: 700px;
+                        height: 20px;
+                    }
 
-    <div class="container-scroller "  style="width:700px;" id="table-wrapper">
-         <div class="container-fluid page-body-wrapper full-page-wrapper">
-             <div class="card w-300 h-200 ">
-                 <div class="card-body px-5 py-5">
-                 <div class="row align-items-start">
-                    <h1>新怪獸！<span>2023-4-30</span></h1>
+                    span {
+                        font-weight: normal;
+                        font-size: 20px;
+                        color: gray;
+                    }
+                </style>
+                <style>
+                    .btn-green {
+                        background-color: green;
+                        color: white;
+                    }
+                </style>
+                <?php
+                //這裡是detail，所以會看到標題和內容
+                $NewsID = $_GET["NewsID"];
 
+                $sql = "select * from shopnews where NewsID = $NewsID";
+                $result = mysqli_query($link, $sql);
+
+                ?>
+
+                <div class="container-scroller " style="width:700px;" id="table-wrapper">
+                    <div class="container-fluid page-body-wrapper full-page-wrapper">
+                        <div class="card w-300 h-200 ">
+                            <div class="card-body px-5 py-5">
+                                <div class="row align-items-start">
+                                    <?php while ($row = mysqli_fetch_assoc($result)) { ?>
+
+                                        <h1>
+                                            <?php echo $row['title'] ?><span>
+                                                <?php echo $row['time'] ?>
+                                            </span>
+                                        </h1>
+
+                                    </div>
+                                    <p align="left">
+                                        <?php echo $row['content'] ?>
+                                    </p>
+
+
+                                <?php } ?>
+                                <form name='postform' method="GET">
+                                    <div style="text-align: center;">
+                                        <a href="announce_up.php?ID=<?php echo $ID; ?>"
+                                            style="float: right; width: 70px;height: 20px; border-radius: 4px;background-color: #70c745; color: white; border-color:#DDDDDD ;">修改</a>
+
+
+                                        <a href="announce_de.php?ID=<?php echo $ID; ?>"
+                                            style="float: left; width: 70px;height: 20px; border-radius: 4px;background-color: #70c745; color: white; border-color:#DDDDDD ;">刪除</a>
+
+                                    </form>
+                                    </div>
+
+
+                            </div>
                         </div>
-                        <p align="left">
-                        同學們好：
+                    </div>
+                </div>
 
-                        如果您對於未來感到徬徨、想要超前部署未來就業或升學，踏上外商與一流企業職涯之路。歡迎您報名「ERP顧問實習」。
-
-                        根據多年的實例驗證，同學透過這樣的實習，確實「翻轉人生」，是值得推薦的5星級實習。
-
-                        今年除了7~8月應用顧問的實習外，更新增「SAP ABAP Team 實習」，是對於有志於到外企從事顧問工程師的一條「綠色通道」。
-
-                        🔥報名實習即將於2023/5/16(二)截止，同學們可把握時間！不要錯過站上舞台發光的機會。
-                        </p>
-                        <div style="text-align: center;">
-                     <button type="button" class="btn btn-outline-success" style="float: left;">修改</button>
-                      <button type="button" class="btn btn-outline-success" style="float: right;">刪除</button>
-                       </div>
-
-
-                 </div>
-             </div>
-         </div>
-    </div>
-
-    </div>
-    </div>
+            </div>
+        </div>
 
     </section>
     <!-- ##### Hero Area End ##### -->
