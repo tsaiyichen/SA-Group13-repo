@@ -32,10 +32,9 @@
 <body>
 <?php
 
-session_start();
-$link = @mysqli_connect('localhost', 'root', '12345678', 'sa');
-$ID = $_GET['ID'];
-$sql = "select * from shop";
+include"config";
+$ID = $_GET['NewsID'];
+$sql = "select * from shopnews";
 $result = mysqli_query($link, $sql);
 ?>
     <!-- Preloader -->
@@ -158,8 +157,8 @@ $result = mysqli_query($link, $sql);
                     <tbody>
                     <?php while ($row = mysqli_fetch_assoc($result)) { ?>
                         <tr>
-                          <th scope="row"><?php echo $row["ID"]; ?></th>
-                          <td><u><a href="detail.php?ID=<?php echo $row["ID"];?>">
+                          <th scope="row"><?php echo $row["NewsID"]; ?></th>
+                          <td><u><a href="detail.php?ID=<?php echo $row["NewsID"];?>">
                                     <?php echo $row["title"]; ?>
                                     </a></u></td>
                           <td><?php echo $row["time"]; ?></td>
