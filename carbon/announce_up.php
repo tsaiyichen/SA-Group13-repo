@@ -151,9 +151,9 @@ $link = @mysqli_connect('localhost', 'root', '12345678', 'sa'); ?>
                 </div>
                 <?php
                 //這裡是detail，所以會看到標題和內容
-                $ID = $_GET["ID"];
+                $NewsID = $_GET["NewsID"];
 
-                $sql = "select * from shop where ID = $ID";
+                $sql = "select * from shopnews where NewsID = $NewsID";
                 $result = mysqli_query($link, $sql);
                 $row = mysqli_fetch_assoc($result);
                 ?>
@@ -164,7 +164,7 @@ $link = @mysqli_connect('localhost', 'root', '12345678', 'sa'); ?>
 
 
                         <form method="GET" action="announce_up_b.php" style="font-size: 20px;"><br><br>
-                            <input type="hidden" name="ID" value="<?php echo $ID; ?>">
+                            <input type="hidden" name="NewsID" value="<?php echo $ID; ?>">
                             標題：<br>
                             <input name='title' type="text" value="<?php echo $row["title"]; ?>" style="width:450px;"><br><br>
                             內文：<br>
