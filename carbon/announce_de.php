@@ -3,8 +3,8 @@
 
 session_start();
 $link = @mysqli_connect('localhost', 'root', '12345678', 'sa');
-    $ID=$_GET['ID'];
-    $sql= "delete from shop where ID=$ID";
+    $NewsID=$_GET['NewsID'];
+    $sql= "delete from shopnews where NewsID=$NewsID";
     $result = mysqli_query($link, $sql);
 
 if($result){?>
