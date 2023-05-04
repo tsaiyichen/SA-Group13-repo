@@ -30,6 +30,14 @@
 </head>
 
 <body>
+<?php
+
+session_start();
+$link = @mysqli_connect('localhost', 'root', '12345678', 'sa');
+$ID = $_GET['ID'];
+$sql = "select * from shop";
+$result = mysqli_query($link, $sql);
+?>
     <!-- Preloader -->
     <div class="preloader d-flex align-items-center justify-content-center">
         <div class="preloader-circle"></div>
@@ -148,36 +156,17 @@
                         </tr>
                     </thead>
                     <tbody>
+                    <?php while ($row = mysqli_fetch_assoc($result)) { ?>
                         <tr>
-                          <th scope="row">1</th>
-                          <td><a href="detail.php">新怪獸！</a></td>
-                          <td>2023-4-30</td>
+                          <th scope="row"><?php echo $row["ID"]; ?></th>
+                          <td><u><a href="detail.php?ID=<?php echo $row["ID"];?>">
+                                    <?php echo $row["title"]; ?>
+                                    </a></u></td>
+                          <td><?php echo $row["time"]; ?></td>
                         </tr>
-                        <tr>
-                          <th scope="row">2</th>
-                          <td></td>
-                          <td></td>
-                        </tr>
-                        <tr>
-                          <th scope="row">3</th>
-                          <td></td>
-                          <td></td>
-                        </tr>
-                        <tr>
-                          <th scope="row">4</th>
-                          <td></td>
-                          <td></td>
-                        </tr>
-                        <tr>
-                            <th scope="row">5</th>
-                            <td></td>
-                            <td></td>
-                        </tr>
-                        <tr>
-                            <th scope="row">6</th>
-                            <td></td>
-                            <td></td>
-                        </tr>
+
+                            <?php } ?>
+
                     </tbody>
                 </table>
     </section>
