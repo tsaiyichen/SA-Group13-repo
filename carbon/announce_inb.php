@@ -2,12 +2,12 @@
 
 session_start();
 $link = @mysqli_connect('localhost', 'root', '12345678', 'sa');
-$ID=$_GET['ID'];
+$NewsID=$_GET['NewsID'];
 $title=$_GET['title'];
 $content=$_GET['content'];
 
 
-$sql="INSERT into shop(title,content) values ('$title','$content')";
+$sql="INSERT into shopnews(title,content) values ('$title','$content')";
 $result=mysqli_query($link,$sql);
 if($result){?>
     <script language="javascript">
