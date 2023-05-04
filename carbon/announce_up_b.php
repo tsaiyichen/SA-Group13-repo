@@ -2,14 +2,14 @@
 
 session_start();
 $link = @mysqli_connect('localhost', 'root', '12345678', 'sa');
-$ID = $_GET['ID'];
+$NewsID = $_GET['NewsID'];
 $title = $_GET['title'];
 $content = $_GET['content'];
 
-$sql = "update shop set
+$sql = "update shopnews set
 title = '$title',
 content ='$content'
-where ID = $ID";
+where NewsID = $NewsID";
 
 $result = mysqli_query($link, $sql);
 
