@@ -18,6 +18,16 @@ if($userPoint < $monsterPrice){
 </script>
 <?php
 }else{
+    $sql = "UPDATE account set point = point - $monsterPrice WHERE userID = $userID";
+    $result = mysqli_query($link, $sql);
+    if(!($result){
+        ?>
+    <script language="javascript">
+        alert("set point error!!");
+        location.href="shop.php";
+    </script>
+    <?php
+    }
     $sql3 = "INSERT INTO purchase (monsterID, userID) VALUES ('$userID', '$monsterID')";
     $result3 = mysqli_query($link, $sql3);
 
