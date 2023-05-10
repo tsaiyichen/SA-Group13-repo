@@ -151,7 +151,7 @@
                 <div class="col-12 col-md-6">
                     <!-- Section Heading -->
                     <div class="section-heading">
-                        <form method="post" action="upload.php" style="font-size: 20px;"><br><br>
+                        <form method="post" action="upload.php" style="font-size: 20px;" enctype="multipart/form-data"><br><br>
                             怪獸姓名：<br>
                             <input type="text" name="name" required style="width:450px;"><br><br>
                             怪獸蛋價格：<br>
