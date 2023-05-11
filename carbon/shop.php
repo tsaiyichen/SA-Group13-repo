@@ -163,12 +163,48 @@
                                 <div class="single-product-area mb-50">
                                     <!-- Product Image -->
                                     <div class="product-img">
+                                    <?php
+                                    $currentUserID = $_SESSION['userID'];
+                                    $link = @mysqli_connect('localhost', 'root', '12345678', 'sa');
+
+                                    $sql = "SELECT monsterID FROM monster";
+                                    $sql2 = "SELECT * FROM purchase WHERE userID = '$currenUserID'";
+                                    $count = 0;
+                                    $numRow = [];
+
+                                    $result = mysqli_query($link, $sql);
+                                    $result2 = mysqli_query($link, $sql2);
+                                    while($row2 = mysqli_fetch_assoc($result2)){
+                                        $numRow[$count] = $row2['monsterID'];
+                                        $count++;
+                                    }
+
+                                    while($row = mysqli_fetch_assoc($result)){
+                                        $pickMonsterID = $row['monsterID'];
+                                        if(in_array($pickMonsterID, $numRow)){
+                                        $path = "eggDone/".$pickMonsterID.".jpg";
+                                        echo '<a href="shop-details.html"><img src="$path" alt=""></a>';
+                                        }else{
+                                        $path = "egg/".$pickMonsterID.".jpg";
+                                        echo '<a href="shop-details.html"><img src="$path" alt=""></a>';
+                                        echo '<div class="product-meta d-flex">';
+
+                                        echo '<a href="shop_b.php" class="add-to-cart-btn" style="width: 300px; margin-left: auto; margin-right: auto;">BUY</a>';
+
+                                        echo '</div></div>';
+                                        }
+                                    }
+
+
+
+                                    ?>
+
                                         <a href="shop-details.html"><img src="img/bg-img/egg1.jpg" alt=""></a>
                                         <!-- Product Tag -->
 
                                         <div class="product-meta d-flex">
 
-                                            <a href="cart.php" class="add-to-cart-btn" style="width: 300px; margin-left: auto; margin-right: auto;">BUY</a>
+                                            <a href="shop_b.php" class="add-to-cart-btn" style="width: 300px; margin-left: auto; margin-right: auto;">BUY</a>
 
                                         </div>
                                     </div>
