@@ -159,10 +159,6 @@
                         <div class="row">
 
                             <!-- Single Product Area -->
-                            <div class="col-12 col-sm-6 col-lg-4">
-                                <div class="single-product-area mb-50">
-                                    <!-- Product Image -->
-                                    <div class="product-img">
                                     <?php
                                     $currentUserID = $_SESSION['userID'];
                                     $link = @mysqli_connect('localhost', 'root', '12345678', 'sa');
@@ -202,28 +198,18 @@
                                         <?php
                                         $sql3 = "SELECT * FROM monster WHERE monsterID = '$pickMonsterID'";
                                         $result3 = mysqli_query($link, $sql3);
-                                        $row3 = mysqli
+                                        $row3 = mysqli_fetch_assoc($result3);
                                         ?>
-                                        <p><?php echo $row</p>
+                                        <p>怪獸蛋</p>
                                         </a>
-                                       <h6>$10.99</h6>
+                                       <h6><?php echo "$".$row3['price'];?></h6>
                                            </div>
                                           </div>
                                         </div>
                                 <?php
                                     }
-
                                     }
-                                    ?>
-                                    <div class="product-info mt-15 text-center">
-                                        <a href="shop-details.html">
-                                            <p>怪物蛋</p>
-                                        </a>
-                                        <h6>$10.99</h6>
-                                    </div>
-                                </div>
-                            </div>
-
+                                ?>
                             <!-- Single Product Area -->
                             <div class="col-12 col-sm-6 col-lg-4">
                                 <div class="single-product-area mb-50">
