@@ -190,7 +190,7 @@
                                         echo '<a href="shop-details.html"><img src="$path" alt=""></a>';
                                         echo '<div class="product-meta d-flex">';
 
-                                        echo '<a href="shop_b.php" class="add-to-cart-btn" style="width: 300px; margin-left: auto; margin-right: auto;">BUY</a>';
+                                        echo '<a href="shop_b.php?userID=$currentUserID&monsterID=$pickMonsterID" class="add-to-cart-btn" style="width: 300px; margin-left: auto; margin-right: auto;">BUY</a>';
 
                                         echo '</div></div>';?>
                                         <div class="product-info mt-15 text-center">
