@@ -11,7 +11,8 @@ $monsterID = $_GET['monsterID'];
         if (confirm("確定購買？")) {
         document.getElementById("purchaseForm").submit();
       }else{
-      location.herf="shop.php";
+      location.href="shop.php";
       }
     }
+confirmPurchase();
 </script>

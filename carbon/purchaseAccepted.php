@@ -20,7 +20,7 @@ if($userPoint < $monsterPrice){
 }else{
     $sql = "UPDATE account set point = point - $monsterPrice WHERE userID = $userID";
     $result = mysqli_query($link, $sql);
-    if(!($result){
+    if(!($result)){
         ?>
     <script language="javascript">
         alert("set point error!!");
@@ -43,6 +43,7 @@ if($userPoint < $monsterPrice){
         alert("購買失敗");
         location.href="shop.php";
     </script>
+    <?php
     }
 }
 ?>

@@ -183,18 +183,20 @@
                                     <?php
                                         $pickMonsterID = $row['monsterID'];
                                         if(in_array($pickMonsterID, $numRow)){
-                                        $path = "eggDone/".$pickMonsterID.".jpg";
-                                        echo '<a href="shop-details.html"><img src="$path" alt=""></a>';
+                                        $path = "eggDone/".$pickMonsterID.".jpg";?>
+                                        <a href="shop_b.php?userID=$currentUserID&monsterID=$pickMonsterID"><img src="<?php echo $path;?>"></a><?php
                                         }else{
                                         $path = "egg/".$pickMonsterID.".jpg";
-                                        echo '<a href="shop-details.html"><img src="$path" alt=""></a>';
+                                        ?>
+
+                                        <a href="shop_b.php?userID=$currentUserID&monsterID=$pickMonsterID"><img src="<?php echo $path;?>"></a><?php
                                         echo '<div class="product-meta d-flex">';
 
                                         echo '<a href="shop_b.php?userID=$currentUserID&monsterID=$pickMonsterID" class="add-to-cart-btn" style="width: 300px; margin-left: auto; margin-right: auto;">BUY</a>';
 
                                         echo '</div></div>';?>
                                         <div class="product-info mt-15 text-center">
-                                        <a href="shop-details.html">
+                                        <a href="shop_b.php?userID=$currentUserID&monsterID=$pickMonsterID">
                                         <?php
                                         $sql3 = "SELECT * FROM monster WHERE monsterID = '$pickMonsterID'";
                                         $result3 = mysqli_query($link, $sql3);
