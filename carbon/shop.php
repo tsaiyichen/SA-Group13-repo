@@ -179,7 +179,12 @@
                                         $count++;
                                     }
 
-                                    while($row = mysqli_fetch_assoc($result)){
+                                    while($row = mysqli_fetch_assoc($result)){?>
+                                    <div class="col-12 col-sm-6 col-lg-4">
+                                    <div class="single-product-area mb-50">
+                                    <!-- Product Image -->
+                                    <div class="product-img">
+                                    <?php
                                         $pickMonsterID = $row['monsterID'];
                                         if(in_array($pickMonsterID, $numRow)){
                                         $path = "eggDone/".$pickMonsterID.".jpg";
@@ -191,24 +196,25 @@
 
                                         echo '<a href="shop_b.php" class="add-to-cart-btn" style="width: 300px; margin-left: auto; margin-right: auto;">BUY</a>';
 
-                                        echo '</div></div>';
-                                        }
+                                        echo '</div></div>';?>
+                                        <div class="product-info mt-15 text-center">
+                                        <a href="shop-details.html">
+                                        <?php
+                                        $sql3 = "SELECT * FROM monster WHERE monsterID = '$pickMonsterID'";
+                                        $result3 = mysqli_query($link, $sql3);
+                                        $row3 = mysqli
+                                        ?>
+                                        <p><?php echo $row</p>
+                                        </a>
+                                       <h6>$10.99</h6>
+                                           </div>
+                                          </div>
+                                        </div>
+                                <?php
                                     }
 
-
-
+                                    }
                                     ?>
-
-                                        <a href="shop-details.html"><img src="img/bg-img/egg1.jpg" alt=""></a>
-                                        <!-- Product Tag -->
-
-                                        <div class="product-meta d-flex">
-
-                                            <a href="shop_b.php" class="add-to-cart-btn" style="width: 300px; margin-left: auto; margin-right: auto;">BUY</a>
-
-                                        </div>
-                                    </div>
-                                    <!-- Product Info -->
                                     <div class="product-info mt-15 text-center">
                                         <a href="shop-details.html">
                                             <p>怪物蛋</p>
