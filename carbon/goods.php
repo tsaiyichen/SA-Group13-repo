@@ -78,7 +78,7 @@
     <div class="breadcrumb-area">
         <!-- Top Breadcrumb Area -->
         <div class="top-breadcrumb-area bg-img bg-overlay d-flex align-items-center justify-content-center" style="background-image: url(img/bg-img/24.jpg);">
-            <h2>新產品發佈</h2>
+            <h2>新怪獸上架</h2>
         </div>
 
         <div class="container">
@@ -87,7 +87,7 @@
                     <nav aria-label="breadcrumb">
                         <ol class="breadcrumb">
                             <li class="breadcrumb-item"><a href="#"><i class="fa fa-home"></i>首頁</a></li>
-                            <li class="breadcrumb-item active" aria-current="page">新產品發佈</li>
+                            <li class="breadcrumb-item active" aria-current="page">新怪獸上架</li>
                         </ol>
                     </nav>
                 </div>
