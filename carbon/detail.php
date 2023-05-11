@@ -152,7 +152,8 @@ $link = @mysqli_connect('localhost', 'root', '12345678', 'sa'); ?>
                                             style="float: right; width: 70px;height: 20px; border-radius: 4px;background-color: #70c745; color: white; border-color:#DDDDDD ;">修改</a>
 
 
-                                        <a href="announce_de.php?NewsID=<?php echo $NewsID; ?>"
+                                        <a href="announce_de.php?NewsID=<?php echo $News
+                                        ID; ?>"
                                             style="float: left; width: 70px;height: 20px; border-radius: 4px;background-color: #70c745; color: white; border-color:#DDDDDD ;">刪除</a>
 
                                     </form>
