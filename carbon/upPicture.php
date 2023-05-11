@@ -143,21 +143,35 @@
             <div class="row align-items-center justify-content-between">
                 <!-- Contact Thumbnail -->
                 <div class="col-12 col-md-5">
+                <?php $monsterID = $_GET['monsterID'];
+                $path = "monster/".$monsterID.".jpg";
+                ?>
 
-                        <img src="img/bg-img/40.jpg" alt="">
+                        <img src="<?php echo $path;?>" alt="">
 
                 </div>
 
                 <div class="col-12 col-md-6">
                     <!-- Section Heading -->
                     <div class="section-heading">
-                        <form method="post" action="updatePicture.php" style="font-size: 20px;"><br><br>
+                    <?php
+
+                    $link = mysqli_connect('localhost', 'root', '12345678', 'sa');
+                    $sql = "SELECT * FROM monster WHERE monsterID = '$monsterID'";
+                    $result = mysqli_query($link, $sql);
+                    $row = mysqli_fetch_assoc($result);
+                    $currentName = $row['name'];
+                    $currentPrice = $row['price'];
+                    $currentIntro = $row['introduction'];
+                    ?>
+                        <form method="get" action="updatePicture.php" style="font-size: 20px;"><br><br>
+                            <input type="hidden" name="monsterID" value="<?echo $monsterID;?>">
                             怪獸姓名：<br>
-                            <input type="text" name="name" required style="width:450px;"><br><br>
+                            <input type="text" name="name" value="<?php echo $currentName;?>" required style="width:450px;"><br><br>
                             怪獸蛋價格：<br>
-                            <input type="text" name="price" required style="width:450px;"><br><br>
+                            <input type="text" name="price" value="<?php echo $currentPrice;?>" required style="width:450px;"><br><br>
                             怪獸自我介紹：<br>
-                            <textarea name="introduction" required style="width:450px;height:100px;"></textarea><br><br>
+                            <textarea name="introduction" required style="width:450px;height:100px;"><?php echo $currentIntro?></textarea><br><br>
                             <input type="submit" value="修改" name="submit" style="width: 70px;height: 40px; border-radius: 4px;background-color: #70c745; color: white; border-color:#DDDDDD ;">
                         </form>
 
