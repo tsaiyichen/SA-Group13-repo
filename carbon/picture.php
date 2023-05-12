@@ -169,7 +169,7 @@
                     </div>
                 </div>
             </div>
-            <?php while ($row = mysqli_fetch_assoc($result)) { ?>
+
                 <div class="row">
                     <!-- Sidebar Area -->
 
@@ -178,7 +178,7 @@
                     <div class="col-16 col-md-8 col-lg-9">
                         <div class="shop-products-area">
                             <div class="row">
-
+                                <?php while ($row = mysqli_fetch_assoc($result)) { ?>
                                 <!-- Single Product Area -->
                                 <div class="col-12 col-sm-6 col-lg-4">
                                     <div class="single-product-area mb-50">
@@ -201,12 +201,12 @@
                                                 <?php echo $row["introduction"]; ?>
                                             </div>
                                             <br>
-                                            <a href="upPicture.php?NewID=<?php echo $monsterID; ?>"
-                                            style="float: right; width: 70px;height: 20px; border-radius: 4px;background-color: #70c745; color: white; border-color:#DDDDDD ;">修改</a>
-
-
-                                        <a href="deletePicture.php.php?NewsID=<?php echo $monsterID; ?>"
+                                            if($_SESSION['level'] == 'admin'){
+                                             <a href="upPicture.php?monsterID=<?php echo $monsterID; ?>"
+                                             style="float: right; width: 70px;height: 20px; border-radius: 4px;background-color: #70c745; color: white; border-color:#DDDDDD ;">修改</a>
+                                            <a href="deletePicture.php?monsterID=<?php echo $monsterID; ?>"
                                             style="float: left; width: 70px;height: 20px; border-radius: 4px;background-color: #70c745; color: white; border-color:#DDDDDD ;">刪除</a>
+}
 
                                         </div>
                                     </div>
@@ -222,7 +222,7 @@
                                     }
                                 </style>
                                 <div class="contt"></div>
-
+                                <?php } ?>
 
 
 
@@ -233,7 +233,7 @@
                         </div>
                     </div>
                 </div>
-            <?php } ?>
+
         </div>
     </section>
 
