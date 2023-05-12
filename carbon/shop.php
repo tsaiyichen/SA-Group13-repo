@@ -205,7 +205,11 @@
                                         <p>怪獸蛋</p>
                                         </a>
                                        <h6><?php echo "$".$row3['price'];?></h6>
+                                       <form action="shop_b.php" method="get">
+                                       <input type="hidden" name="monsterID" value="<?php echo $pickMonsterID;?>">
+                                       <input type="hidden" name="userID" value="<?php echo $currentUserID;?>">
                                        <input type="submit" value="購買" name="submit" style="width: 60px;height: 30px; border-radius: 30px;background-color: #70c745; color: white; border-color:#DDDDDD ;">
+                                       </form>
                                            </div>
                                           </div>
                                         </div>
