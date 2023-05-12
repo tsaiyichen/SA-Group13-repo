@@ -179,7 +179,7 @@
                                     <div class="col-12 col-sm-6 col-lg-4">
                                     <div class="single-product-area mb-50">
                                     <!-- Product Image -->
-                                    <div class="product-img">
+                                    <div>
                                     <?php
                                         $pickMonsterID = $row['monsterID'];
                                         if(in_array($pickMonsterID, $numRow)){
@@ -205,6 +205,7 @@
                                         <p>怪獸蛋</p>
                                         </a>
                                        <h6><?php echo "$".$row3['price'];?></h6>
+                                       <input type="submit" value="購買" name="submit" style="width: 60px;height: 30px; border-radius: 30px;background-color: #70c745; color: white; border-color:#DDDDDD ;">
                                            </div>
                                           </div>
                                         </div>
