@@ -143,13 +143,15 @@
                                     <div class="single-product-area mb-50">
                                         <!-- Product Image -->
                                         <div class="product-img">
-                                            <img src="monster/<?php echo $row["monsterID"]; ?>.jpg" alt=""></a>
+                                        <?php $monsterID = $row['monsterID'];?>
+                                            <img src="monster/<?php echo $monsterID; ?>.jpg" alt=""></a>
                                         </div>
                                         <!-- Product Info -->
                                         <div class="product-info mt-15 text-center">
                                             <h6>
                                                 <?php echo $row["name"]; ?>
                                             </h6>
+                                            <p>價格: $<?php echo $row['price'];?></p>
                                             <style>
                                                 .text-area {
                                                     word-wrap: break-word;
@@ -165,7 +167,7 @@
                                              style="float: right; width: 70px;height: 20px; border-radius: 4px;background-color: #70c745; color: white; border-color:#DDDDDD ;">修改</a>
                                             <a href="deletePicture.php?monsterID=<?php echo $monsterID; ?>"
                                             style="float: left; width: 70px;height: 20px; border-radius: 4px;background-color: #70c745; color: white; border-color:#DDDDDD ;">刪除</a>
-}
+
 
                                         </div>
                                     </div>

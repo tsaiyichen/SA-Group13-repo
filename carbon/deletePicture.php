@@ -6,7 +6,7 @@ $monsterID = $_GET['monsterID'];
 $sql = "DELETE FROM monster WHERE monsterID = '$monsterID'";
 
 $result = mysqli_query($link, $sql);
-if(!($result){
+if(!($result)){
 ?>
 <script language="javascript">
     alert("sql Error");
