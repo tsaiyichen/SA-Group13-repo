@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-
+<?php session_start();?>
 <head>
     <meta charset="UTF-8">
     <meta name="description" content="">
@@ -58,45 +58,7 @@
                             </div>
 
                             <!-- Navbar Start -->
-                            <div class="classynav">
-                                <ul>
-                                    <li><a href="index.php">Home</a></li>
-                                    <li><a href="about.php">About</a></li>
-                                    <li><a href="#">Pages</a>
-                                        <ul class="dropdown">
-                                            <li><a href="index.php">Home</a></li>
-                                            <li><a href="about.php">About</a></li>
-                                            <li><a href="shop.html">Shop</a>
-                                                <ul class="dropdown">
-                                                    <li><a href="shop.html">Shop</a></li>
-                                                    <li><a href="shop-details.html">Shop Details</a></li>
-                                                    <li><a href="cart.php">Shopping Cart</a></li>
-                                                    <li><a href="checkout.php">Checkout</a></li>
-                                                </ul>
-                                            </li>
-                                            <li><a href="portfolio.php">Portfolio</a>
-                                                <ul class="dropdown">
-                                                    <li><a href="portfolio.php">Portfolio</a></li>
-                                                    <li><a href="single-portfolio.html">Portfolio Details</a></li>
-                                                </ul>
-                                            </li>
-                                            <li><a href="blog.php">Blog</a>
-                                                <ul class="dropdown">
-                                                    <li><a href="blog.php">Blog</a></li>
-                                                    <li><a href="single-post.html">Blog Details</a></li>
-                                                </ul>
-                                            </li>
-                                            <li><a href="contact.php">Contact</a></li>
-                                        </ul>
-                                    </li>
-                                    <li><a href="shop.html">Shop</a></li>
-                                    <li><a href="portfolio.php">Portfolio</a></li>
-                                    <li><a href="contact.php">Contact</a></li>
-                                </ul>
-
-
-
-                            </div>
+                            <?php include "navBar.php";?>
                             <!-- Navbar End -->
                         </div>
                     </nav>
@@ -164,7 +126,7 @@
                                     $link = @mysqli_connect('localhost', 'root', '12345678', 'sa');
 
                                     $sql = "SELECT monsterID FROM monster";
-                                    $sql2 = "SELECT * FROM purchase WHERE userID = '$currenUserID'";
+                                    $sql2 = "SELECT * FROM purchase WHERE userID = '$currentUserID'";
                                     $count = 0;
                                     $numRow = [];
 
@@ -184,27 +146,27 @@
                                         $pickMonsterID = $row['monsterID'];
                                         if(in_array($pickMonsterID, $numRow)){
                                         $path = "eggDone/".$pickMonsterID.".jpg";?>
-                                        <a href="shop_b.php?userID=$currentUserID&monsterID=$pickMonsterID"><img src="<?php echo $path;?>"></a><?php
+                                        <img src="<?php echo $path;?>"><?php
                                         }else{
                                         $path = "egg/".$pickMonsterID.".jpg";
                                         ?>
 
-                                        <a href="shop_b.php?userID=$currentUserID&monsterID=$pickMonsterID"><img src="<?php echo $path;?>"></a><?php
+                                        <img src="<?php echo $path;?>"><?php
                                         echo '<div class="product-meta d-flex">';
 
-                                        echo '<a href="shop_b.php?userID=$currentUserID&monsterID=$pickMonsterID" class="add-to-cart-btn" style="width: 300px; margin-left: auto; margin-right: auto;">BUY</a>';
+
 
                                         echo '</div></div>';?>
                                         <div class="product-info mt-15 text-center">
-                                        <a href="shop_b.php?userID=$currentUserID&monsterID=$pickMonsterID">
+
                                         <?php
                                         $sql3 = "SELECT * FROM monster WHERE monsterID = '$pickMonsterID'";
                                         $result3 = mysqli_query($link, $sql3);
                                         $row3 = mysqli_fetch_assoc($result3);
                                         ?>
                                         <p>怪獸蛋</p>
-                                        </a>
-                                       <h6><?php echo "$".$row3['price'];?></h6>
+
+                                       <p><h6><?php echo "$".$row3['price'];?></h6></p>
                                        <form action="shop_b.php" method="get">
                                        <input type="hidden" name="monsterID" value="<?php echo $pickMonsterID;?>">
                                        <input type="hidden" name="userID" value="<?php echo $currentUserID;?>">
@@ -217,183 +179,7 @@
                                     }
                                     }
                                 ?>
-                            <!-- Single Product Area -->
-                            <div class="col-12 col-sm-6 col-lg-4">
-                                <div class="single-product-area mb-50">
-                                    <!-- Product Image -->
-                                    <div class="product-img">
-                                        <a href="shop-details.html"><img src="img/bg-img/egg2.jpg" alt=""></a>
-                                        <div class="product-meta d-flex">
 
-                                            <a href="cart.php" class="add-to-cart-btn" style="width: 300px; margin-left: auto; margin-right: auto;">BUY</a>
-                                            </a>
-
-                                        </div>
-                                    </div>
-                                    <!-- Product Info -->
-                                    <div class="product-info mt-15 text-center">
-                                        <a href="shop-details.html">
-                                            <p>怪物蛋</p>
-                                        </a>
-                                        <h6>$10.99</h6>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <!-- Single Product Area -->
-                            <div class="col-12 col-sm-6 col-lg-4">
-                                <div class="single-product-area mb-50">
-                                    <!-- Product Image -->
-                                    <div class="product-img">
-                                        <a href="shop-details.html"><img src="img/bg-img/egg3.jpg" alt=""></a>
-                                        <div class="product-meta d-flex">
-
-                                            <a href="cart.php" class="add-to-cart-btn" style="width: 300px; margin-left: auto; margin-right: auto;">BUY</a>
-
-                                        </div>
-                                    </div>
-                                    <!-- Product Info -->
-                                    <div class="product-info mt-15 text-center">
-                                        <a href="shop-details.html">
-                                            <p>怪物蛋</p>
-                                        </a>
-                                        <h6>$10.99</h6>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <!-- Single Product Area -->
-                            <div class="col-12 col-sm-6 col-lg-4">
-                                <div class="single-product-area mb-50">
-                                    <!-- Product Image -->
-                                    <div class="product-img">
-                                        <a href="shop-details.html"><img src="img/bg-img/egg4.jpg" alt=""></a>
-                                        <div class="product-meta d-flex">
-
-                                            <a href="cart.php" class="add-to-cart-btn" style="width: 300px; margin-left: auto; margin-right: auto;">BUY</a>
-
-                                        </div>
-                                    </div>
-                                    <!-- Product Info -->
-                                    <div class="product-info mt-15 text-center">
-                                        <a href="shop-details.html">
-                                            <p>怪物蛋</p>
-                                        </a>
-                                        <h6>$10.99</h6>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <!-- Single Product Area -->
-                            <div class="col-12 col-sm-6 col-lg-4">
-                                <div class="single-product-area mb-50">
-                                    <!-- Product Image -->
-                                    <div class="product-img">
-                                        <a href="shop-details.html"><img src="img/bg-img/egg5.jpg" alt=""></a>
-                                        <div class="product-meta d-flex">
-
-                                            <a href="cart.php" class="add-to-cart-btn" style="width: 300px; margin-left: auto; margin-right: auto;">BUY</a>
-
-                                        </div>
-                                    </div>
-                                    <!-- Product Info -->
-                                    <div class="product-info mt-15 text-center">
-                                        <a href="shop-details.html">
-                                            <p>怪物蛋</p>
-                                        </a>
-                                        <h6>$10.99</h6>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <!-- Single Product Area -->
-                            <div class="col-12 col-sm-6 col-lg-4">
-                                <div class="single-product-area mb-50">
-                                    <!-- Product Image -->
-                                    <div class="product-img">
-                                        <a href="shop-details.html"><img src="img/bg-img/egg6.jpg" alt=""></a>
-                                        <div class="product-meta d-flex">
-
-                                            <a href="cart.php" class="add-to-cart-btn" style="width: 300px; margin-left: auto; margin-right: auto;">BUY</a>
-
-                                        </div>
-                                    </div>
-                                    <!-- Product Info -->
-                                    <div class="product-info mt-15 text-center">
-                                        <a href="shop-details.html">
-                                            <p>怪物蛋</p>
-                                        </a>
-                                        <h6>$10.99</h6>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <!-- Single Product Area -->
-                            <div class="col-12 col-sm-6 col-lg-4">
-                                <div class="single-product-area mb-50">
-                                    <!-- Product Image -->
-                                    <div class="product-img">
-                                        <a href="shop-details.html"><img src="img/bg-img/egg7.jpg" alt=""></a>
-                                        <div class="product-meta d-flex">
-
-                                            <a href="cart.php" class="add-to-cart-btn" style="width: 300px; margin-left: auto; margin-right: auto;">BUY</a>
-
-                                        </div>
-                                    </div>
-                                    <!-- Product Info -->
-                                    <div class="product-info mt-15 text-center">
-                                        <a href="shop-details.html">
-                                            <p>怪物蛋</p>
-                                        </a>
-                                        <h6>$10.99</h6>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <!-- Single Product Area -->
-                            <div class="col-12 col-sm-6 col-lg-4">
-                                <div class="single-product-area mb-50">
-                                    <!-- Product Image -->
-                                    <div class="product-img">
-                                        <a href="shop-details.html"><img src="img/bg-img/egg8.jpg" alt=""></a>
-
-                                        <div class="product-meta d-flex">
-
-                                            <a href="cart.php" class="add-to-cart-btn" style="width: 300px; margin-left: auto; margin-right: auto;">BUY</a>
-
-                                        </div>
-                                    </div>
-                                    <!-- Product Info -->
-                                    <div class="product-info mt-15 text-center">
-                                        <a href="shop-details.html">
-                                            <p>怪物蛋</p>
-                                        </a>
-                                        <h6>$10.99</h6>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <!-- Single Product Area -->
-                            <div class="col-12 col-sm-6 col-lg-4">
-                                <div class="single-product-area mb-50">
-                                    <!-- Product Image -->
-                                    <div class="product-img">
-                                        <a href="shop-details.html"><img src="img/bg-img/egg9.jpg" alt=""></a>
-                                        <div class="product-meta d-flex">
-
-                                            <a href="cart.php" class="add-to-cart-btn" style="width: 300px; margin-left: auto; margin-right: auto;">BUY</a>
-
-                                        </div>
-                                    </div>
-                                    <!-- Product Info -->
-                                    <div class="product-info mt-15 text-center">
-                                        <a href="shop-details.html">
-                                            <p>怪物蛋</p>
-                                        </a>
-                                        <h6>$10.99</h6>
-                                    </div>
-                                </div>
-                            </div>
                         </div>
 
 
