@@ -201,7 +201,7 @@
                                                 <?php echo $row["introduction"]; ?>
                                             </div>
                                             <br>
-                                            if($_SESSION['level'] == 'admin'){
+                                            <?php if($_SESSION['level'] == 'admin'){?>
                                              <a href="upPicture.php?monsterID=<?php echo $monsterID; ?>"
                                              style="float: right; width: 70px;height: 20px; border-radius: 4px;background-color: #70c745; color: white; border-color:#DDDDDD ;">修改</a>
                                             <a href="deletePicture.php?monsterID=<?php echo $monsterID; ?>"
@@ -222,7 +222,8 @@
                                     }
                                 </style>
                                 <div class="contt"></div>
-                                <?php } ?>
+                                <?php }
+                                 }?>
 
 
 
