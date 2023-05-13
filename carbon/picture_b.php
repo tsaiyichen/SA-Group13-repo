@@ -1,7 +1,6 @@
 <?php
 session_start();
 $link = @mysqli_connect('localhost', 'root', '12345678', 'sa');
-$monsterID = $_GET['monsterID'];
 
 if ($_SESSION['level'] == 'user') {
     $userID = $_SESSION['userID'];
