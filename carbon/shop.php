@@ -141,22 +141,24 @@
                                     <div class="col-12 col-sm-6 col-lg-4">
                                     <div class="single-product-area mb-50">
                                     <!-- Product Image -->
-                                    <div>
+                                    <div class="product-img">
                                     <?php
                                         $pickMonsterID = $row['monsterID'];
                                         if(in_array($pickMonsterID, $numRow)){
                                         $path = "eggDone/".$pickMonsterID.".jpg";?>
-                                        <img src="<?php echo $path;?>"><?php
+                                        <img src="<?php echo $path;?>">
+                                        </div></div></div>
+                                        <?php
                                         }else{
                                         $path = "egg/".$pickMonsterID.".jpg";
                                         ?>
 
-                                        <img src="<?php echo $path;?>"><?php
-                                        echo '<div class="product-meta d-flex">';
+                                        <img src="<?php echo $path;?>">
+                                    </div>
 
 
 
-                                        echo '</div></div>';?>
+
                                         <div class="product-info mt-15 text-center">
 
                                         <?php

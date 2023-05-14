@@ -6,8 +6,9 @@ $name = $_GET['name'];
 $introduction = $_GET['introduction'];
 $price = $_GET['price'];
 
-$sql = "UPDATE monster set name = '$name', introduction = '$introduction', price = '$price' WHERE monsterID = '$monsterID'";
+$sql = "UPDATE monster set name='$name', introduction='$introduction', price='$price' WHERE monsterID='$monsterID'";
 $result = mysqli_query($link, $sql);
+
 if($result){
 ?>
 <script language="javascript">

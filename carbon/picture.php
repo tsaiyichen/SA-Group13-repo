@@ -137,12 +137,16 @@
                     <div class="col-16 col-md-8 col-lg-9">
                         <div class="shop-products-area">
                             <div class="row">
-                                <?php while ($row = mysqli_fetch_assoc($result)) { ?>
+                                <?php
+                                    $count = 0;
+                                while ($row = mysqli_fetch_assoc($result)) {
+                                    $count += 1;
+                                    ?>
                                 <!-- Single Product Area -->
                                 <div class="col-12 col-sm-6 col-lg-4">
                                     <div class="single-product-area mb-50">
                                         <!-- Product Image -->
-                                        <div class="product-img">
+                                        <div class="">
                                         <?php $monsterID = $row['monsterID'];?>
                                             <img src="monster/<?php echo $monsterID; ?>.jpg" alt=""></a>
                                         </div>
@@ -167,14 +171,14 @@
                                              style="float: right; width: 70px;height: 20px; border-radius: 4px;background-color: #70c745; color: white; border-color:#DDDDDD ;">修改</a>
                                             <a href="deletePicture.php?monsterID=<?php echo $monsterID; ?>"
                                             style="float: left; width: 70px;height: 20px; border-radius: 4px;background-color: #70c745; color: white; border-color:#DDDDDD ;">刪除</a>
-
+                                        <?php } ?>
 
                                         </div>
                                     </div>
                                 </div>
 
 
-
+                                <?php   if($count % 3 == 0){  ?>
 
                                 <style>
                                     .contt {
