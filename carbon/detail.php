@@ -71,7 +71,7 @@ $link = @mysqli_connect('localhost', 'root', '12345678', 'sa'); ?>
                             </div>
 
                             <!-- Navbar Start -->
-
+                        <?php include "navBar.php";?>
                             <!-- Navbar End -->
                         </div>
                     </nav>
@@ -119,9 +119,9 @@ $link = @mysqli_connect('localhost', 'root', '12345678', 'sa'); ?>
                 </style>
                 <?php
                 //這裡是detail，所以會看到標題和內容
-                $NewsID = $_GET["NewsID"];
+                $NewsID = $_GET["newsID"];
 
-                $sql = "select * from shopnews where NewsID = $NewsID";
+                $sql = "select * from shopnews where NewsID = '$NewsID'";
                 $result = mysqli_query($link, $sql);
 
                 ?>
@@ -131,7 +131,7 @@ $link = @mysqli_connect('localhost', 'root', '12345678', 'sa'); ?>
                         <div class="card w-300 h-200 ">
                             <div class="card-body px-5 py-5">
                                 <div class="row align-items-start">
-                                    <?php while ($row = mysqli_fetch_assoc($result)) { ?>
+                                    <?php $row = mysqli_fetch_assoc($result); ?>
 
                                         <h1>
                                             <?php echo $row['title'] ?><span>
@@ -145,19 +145,19 @@ $link = @mysqli_connect('localhost', 'root', '12345678', 'sa'); ?>
                                     </p>
 
 
-                                <?php } ?>
-                                <form name='postform' method="GET">
+
+                                <?php if($_SESSION['level'] == 'admin'){?>
                                     <div style="text-align: center;">
-                                        <a href="announce_up.php?NewID=<?php echo $NewID; ?>"
+                                        <a href="announce_up.php?NewsID=<?php echo $NewsID; ?>"
                                             style="float: right; width: 70px;height: 20px; border-radius: 4px;background-color: #70c745; color: white; border-color:#DDDDDD ;">修改</a>
 
 
-                                        <a href="announce_de.php?NewsID=<?php echo $News
-                                        ID; ?>"
+                                        <a href="announce_de.php?NewsID=<?php echo $NewsID; ?>"
                                             style="float: left; width: 70px;height: 20px; border-radius: 4px;background-color: #70c745; color: white; border-color:#DDDDDD ;">刪除</a>
 
-                                    </form>
+
                                     </div>
+                                <?php } ?>
 
 
                             </div>

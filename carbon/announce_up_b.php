@@ -9,7 +9,7 @@ $content = $_GET['content'];
 $sql = "update shopnews set
 title = '$title',
 content ='$content'
-where NewsID = $NewsID";
+where NewsID = '$NewsID'";
 
 $result = mysqli_query($link, $sql);
 

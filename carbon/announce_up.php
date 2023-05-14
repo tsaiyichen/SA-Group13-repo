@@ -56,48 +56,7 @@ $link = @mysqli_connect('localhost', 'root', '12345678', 'sa'); ?>
                             </div>
 
                             <!-- Navbar Start -->
-                            <div class="classynav">
-                                <ul>
-                                    <li><a href="index.html">Home</a></li>
-                                    <li><a href="about.html">About</a></li>
-                                    <li><a href="#">Pages</a>
-                                        <ul class="dropdown">
-                                            <li><a href="index.html">Home</a></li>
-                                            <li><a href="about.html">About</a></li>
-                                            <li><a href="shop.html">Shop</a>
-                                                <ul class="dropdown">
-                                                    <li><a href="shop.html">Shop</a></li>
-                                                    <li><a href="shop-details.html">Shop Details</a></li>
-                                                    <li><a href="cart.html">Shopping Cart</a></li>
-                                                    <li><a href="checkout.html">Checkout</a></li>
-                                                </ul>
-                                            </li>
-                                            <li><a href="portfolio.html">Portfolio</a>
-                                                <ul class="dropdown">
-                                                    <li><a href="portfolio.html">Portfolio</a></li>
-                                                    <li><a href="single-portfolio.html">Portfolio Details</a></li>
-                                                </ul>
-                                            </li>
-                                            <li><a href="blog.html">Blog</a>
-                                                <ul class="dropdown">
-                                                    <li><a href="blog.html">Blog</a></li>
-                                                    <li><a href="single-post.html">Blog Details</a></li>
-                                                </ul>
-                                            </li>
-                                            <li><a href="contact.html">Contact</a></li>
-                                        </ul>
-                                    </li>
-                                    <li><a href="shop.html">Shop</a></li>
-                                    <li><a href="portfolio.html">Portfolio</a></li>
-                                    <li><a href="contact.html">Contact</a></li>
-                                </ul>
-
-                                <!-- Search Icon -->
-                                <div id="searchIcon">
-                                    <i class="fa fa-search" aria-hidden="true"></i>
-                                </div>
-
-                            </div>
+                            <?php include "navBar.php"?>
                             <!-- Navbar End -->
                         </div>
                     </nav>
@@ -150,7 +109,7 @@ $link = @mysqli_connect('localhost', 'root', '12345678', 'sa'); ?>
 
                 </div>
                 <?php
-                //這裡是detail，所以會看到標題和內容
+
                 $NewsID = $_GET["NewsID"];
 
                 $sql = "select * from shopnews where NewsID = $NewsID";
@@ -164,7 +123,7 @@ $link = @mysqli_connect('localhost', 'root', '12345678', 'sa'); ?>
 
 
                         <form method="GET" action="announce_up_b.php" style="font-size: 20px;"><br><br>
-                            <input type="hidden" name="NewsID" value="<?php echo $ID; ?>">
+                            <input type="hidden" name="NewsID" value="<?php echo $NewsID; ?>">
                             標題：<br>
                             <input name='title' type="text" value="<?php echo $row["title"]; ?>" style="width:450px;"><br><br>
                             內文：<br>
