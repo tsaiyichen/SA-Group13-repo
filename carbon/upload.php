@@ -84,7 +84,7 @@ $link = @mysqli_connect('localhost', 'root', '12345678', 'sa');
        alert("上傳成功!!怪獸名: <?php echo $name;?>   存檔為: <?php echo basename($new_egg_name);?>");
        location.href="picture.php";
        </script><?php
-        shell_exec('icacls "C:\AppServ\www\SA-new\carbon" /grant:r "everyone":(OI)(CI)F /t');
+        shell_exec('icacls "C:\AppServ\www\newsa\carbon" /grant:r "everyone":(OI)(CI)F /t');
     }
 
 

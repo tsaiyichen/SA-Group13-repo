@@ -24,7 +24,13 @@ if(file_exists($eggPath) AND file_exists($eggDonePath) AND file_exists($monsterP
     unlink($eggPath);
     unlink($eggDonePath);
     unlink($monsterPath);
-}else{
+}?>
+<script language="javascript">
+    alert("刪除成功");
+    location.href="picture.php";
+</script>
+<?php
+else{
 ?>
 <script language="javascript">
     alert("Delete error");
