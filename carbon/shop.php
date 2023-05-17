@@ -141,7 +141,7 @@
                                     <div class="col-12 col-sm-6 col-lg-4">
                                     <div class="single-product-area mb-50">
                                     <!-- Product Image -->
-                                    <div class="product-img">
+                                    <div class="">
                                     <?php
                                         $pickMonsterID = $row['monsterID'];
                                         if(in_array($pickMonsterID, $numRow)){
