@@ -139,7 +139,7 @@
                             <div class="row">
                                 <?php
                                     $count = 0;
-                                while ($row = mysqli_fetch_assoc($result)) {
+                                while($row = mysqli_fetch_assoc($result)) {
                                     $count += 1;
                                     ?>
                                 <!-- Single Product Area -->
@@ -169,8 +169,13 @@
                                             <?php if($_SESSION['level'] == 'admin'){?>
                                              <a href="upPicture.php?monsterID=<?php echo $monsterID; ?>"
                                              style="float: right; width: 70px;height: 20px; border-radius: 4px;background-color: #70c745; color: white; border-color:#DDDDDD ;">修改</a>
-                                            <a href="deletePicture.php?monsterID=<?php echo $monsterID; ?>"
-                                            style="float: left; width: 70px;height: 20px; border-radius: 4px;background-color: #70c745; color: white; border-color:#DDDDDD ;">刪除</a>
+                                            <?php if($row['isUP']){ ?>
+                                            <a href="deletePicture.php?monsterID=<?php echo $monsterID;?>&isUP=0"
+                                            style="float: left; width: 70px;height: 20px; border-radius: 4px;background-color: #70c745; color: white; border-color:#DDDDDD ;">下架</a>
+                                            <?php } else{   ?>
+                                            <a href="deletePicture.php?monsterID=<?php echo $monsterID;?>&isUP=1"
+                                            style="float: left; width: 70px;height: 20px; border-radius: 4px;background-color: #70c745; color: white; border-color:#DDDDDD ;">重新上架</a>
+                                            <?php } ?>
                                         <?php } ?>
 
                                         </div>

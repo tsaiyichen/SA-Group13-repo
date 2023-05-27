@@ -125,7 +125,7 @@
                                     $currentUserID = $_SESSION['userID'];
                                     $link = @mysqli_connect('localhost', 'root', '12345678', 'sa');
 
-                                    $sql = "SELECT monsterID FROM monster";
+                                    $sql = "SELECT * FROM monster";
                                     $sql2 = "SELECT * FROM purchase WHERE userID = '$currentUserID'";
                                     $count = 0;
                                     $numRow = [];
@@ -168,12 +168,20 @@
                                         ?>
                                         <p>怪獸蛋</p>
 
+                                        <?php
+                                        if($row['isUP'] == 0){
+                                        echo '<p>已下架，無法購買</p>';}
+                                        else{
+                                        ?>
+
                                        <p><h6><?php echo "$".$row3['price'];?></h6></p>
+
                                        <form action="shop_b.php" method="get">
                                        <input type="hidden" name="monsterID" value="<?php echo $pickMonsterID;?>">
                                        <input type="hidden" name="userID" value="<?php echo $currentUserID;?>">
                                        <input type="submit" value="購買" name="submit" style="width: 60px;height: 30px; border-radius: 30px;background-color: #70c745; color: white; border-color:#DDDDDD ;">
                                        </form>
+                                       <?php } ?>
                                            </div>
                                           </div>
                                         </div>
