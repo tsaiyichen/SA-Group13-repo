@@ -181,7 +181,12 @@
                                             <a href="deletePicture.php?monsterID=<?php echo $monsterID;?>&isUP=1"
                                             style="float: left; width: 70px;height: 20px; border-radius: 4px;background-color: #70c745; color: white; border-color:#DDDDDD ;">重新上架</a>
                                             <?php } ?>
-                                        <?php } ?>
+                                        <?php }else{
+                                        ?>
+                                            <a href="downloadPicture.php?monsterID=<?php echo $monsterID;?>"
+                                            style="float: left; width: 70px;height: 20px; border-radius: 4px;background-color: #70c745; color: white; border-color:#DDDDDD ;">下載圖片</a>
+                                        <?php
+                                        } ?>
 
                                         </div>
                                     </div>
