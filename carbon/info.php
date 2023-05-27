@@ -30,6 +30,14 @@
 </head>
 
 <body>
+<?php
+
+session_start();
+$link = @mysqli_connect('localhost', 'root', '12345678', 'sa');
+
+$sql = "select * from information";
+$result = mysqli_query($link, $sql);
+?>
     <!-- Preloader -->
     <div class="preloader d-flex align-items-center justify-content-center">
         <div class="preloader-circle"></div>
@@ -41,7 +49,7 @@
     <!-- ##### Header Area Start ##### -->
     <header class="header-area">
 
-    
+
 
         <!-- ***** Navbar Area ***** -->
         <div class="alazea-main-menu">
@@ -125,7 +133,7 @@
 			border-radius: 5px;
 
 		}
-        
+
 		.centered-text {
 			font-size: 1000%;
 			text-align: center;
@@ -148,38 +156,21 @@
                         </tr>
                     </thead>
                     <tbody>
+                    <?php while ($row = mysqli_fetch_assoc($result)) { ?>
                         <tr>
-                          <th scope="row">1</th>
-                          <td><a href="detail.php">新怪獸！</a></td>
-                          <td>2023-4-30</td>
-                        </tr>        
-                        <tr>
-                          <th scope="row">2</th>
-                          <td></td>
-                          <td></td>
+                          <th scope="row"><?php echo $row["infoID"]; ?></th>
+                          <td><u><a href="infoDetail.php?infoID=<?php echo $row['infoID']?>">
+                                    <?php echo $row["title"]; ?>
+                          </a>
+                          </u>
+                          </td>
+                          <td><?php echo $row["time"]; ?></td>
                         </tr>
-                        <tr>
-                          <th scope="row">3</th>
-                          <td></td>
-                          <td></td>                        
-                        </tr>
-                        <tr>
-                          <th scope="row">4</th>
-                          <td></td>
-                          <td></td>                        
-                        </tr>
-                        <tr>
-                            <th scope="row">5</th>
-                            <td></td>
-                            <td></td>                        
-                        </tr>
-                        <tr>
-                            <th scope="row">6</th>
-                            <td></td>
-                            <td></td>                        
-                        </tr>
+
+                            <?php } ?>
+
                     </tbody>
-                </table>       
+                </table>
     </section>
     <!-- ##### Checkout Area End ##### -->
 
@@ -188,7 +179,7 @@
         </div>
     </div>
     <!-- ##### Contact Area Info End ##### -->
-    
+
 
     <!-- ##### All Javascript Files ##### -->
     <!-- jQuery-2.2.4 js -->
