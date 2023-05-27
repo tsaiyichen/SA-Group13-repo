@@ -1,3 +1,5 @@
+<?php session_start();
+$link = @mysqli_connect('localhost', 'root', '12345678', 'sa'); ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -54,7 +56,7 @@
                             </div>
 
                             <!-- Navbar Start -->
-                            <?php include "navBar.php"; ?>
+                            <?php include "navBar.php" ?>
                             <!-- Navbar End -->
                         </div>
                     </nav>
@@ -62,7 +64,8 @@
                     <!-- Search Form -->
                     <div class="search-form">
                         <form action="#" method="get">
-                            <input type="search" name="search" id="search" placeholder="Type keywords &amp; press enter...">
+                            <input type="search" name="search" id="search"
+                                placeholder="Type keywords &amp; press enter...">
                             <button type="submit" class="d-none"></button>
                         </form>
                         <!-- Close Icon -->
@@ -77,8 +80,9 @@
     <!-- ##### Breadcrumb Area Start ##### -->
     <div class="breadcrumb-area">
         <!-- Top Breadcrumb Area -->
-        <div class="top-breadcrumb-area bg-img bg-overlay d-flex align-items-center justify-content-center" style="background-image: url(img/bg-img/24.jpg);">
-            <h2>最新環保資訊修改</h2>
+        <div class="top-breadcrumb-area bg-img bg-overlay d-flex align-items-center justify-content-center"
+            style="background-image: url(img/bg-img/24.jpg);">
+            <h2></h2>
         </div>
 
         <div class="container">
@@ -87,7 +91,7 @@
                     <nav aria-label="breadcrumb">
                         <ol class="breadcrumb">
                             <li class="breadcrumb-item"><a href="#"><i class="fa fa-home"></i>首頁</a></li>
-                            <li class="breadcrumb-item active" aria-current="page">最新環保資訊修改</li>
+                            <li class="breadcrumb-item active" aria-current="page">最新環保資訊發佈</li>
                         </ol>
                     </nav>
                 </div>
@@ -101,35 +105,42 @@
         <div class="container">
             <div class="row align-items-center justify-content-between">
                 <!-- Contact Thumbnail -->
-                <div class="col-12 col-md-5">
-                <?php $monsterID = $_GET['monsterID'];
-                $path = "monster/".$monsterID.".jpg";
-                ?>
+                <div class="col-12 col-md-6">
 
-                        <img src="<?php echo $path;?>" alt="">
+                    <img src="img/bg-img/25.jpg" alt="">
 
                 </div>
+                <?php
+
+                $infoID = $_GET["infoID"];
+
+                $sql = "select * from information where infoID = $infoID";
+                $result = mysqli_query($link, $sql);
+
+                if ($row = mysqli_fetch_assoc($result)) {
+                    $title = $row['title'];
+                    $content = $row['content'];
+
+                }
+                ?>
 
                 <div class="col-12 col-md-6">
                     <!-- Section Heading -->
                     <div class="section-heading">
-                    <?php
 
-                    $link = mysqli_connect('localhost', 'root', '12345678', 'sa');
-                    $sql = "SELECT * FROM monster WHERE monsterID = '$monsterID'";
-                    $result = mysqli_query($link, $sql);
-                    $row = mysqli_fetch_assoc($result);
-                    $currentName = $row['name'];
-                    $currentPrice = $row['price'];
-                    $currentIntro = $row['introduction'];
-                    ?>
-                        <form method="get" action="updatePicture.php" style="font-size: 20px;"><br><br>
-                            <input type="hidden" name="monsterID" value="<?php echo $monsterID;?>">
+
+                        <form method="GET" action="infoUpdate_b.php" style="font-size: 20px;"><br><br>
+                            <input type="hidden" name="infoID" value="<?php echo $infoID; ?>">
                             標題：<br>
-                            <input type="text" name="name" value="<?php echo $currentName;?>" required style="width:450px;"><br><br>
+                            <input name='title' type="text" value="<?php echo $title; ?>"
+                                style="width:450px;"><br><br>
                             內文：<br>
-                            <textarea name="introduction" required style="width:450px;height:100px;"><?php echo $currentIntro?></textarea><br><br>
-                            <input type="submit" value="修改" name="submit" style="width: 70px;height: 40px; border-radius: 4px;background-color: #70c745; color: white; border-color:#DDDDDD ;">
+                            <input name="content" value="<?php echo $content; ?>"
+                                style="width:450px;height:100px;"><br><br>
+
+
+                            <input type="submit" value="修改"
+                                style="width: 70px;height: 40px; border-radius: 4px;background-color: #70c745; color: white; border-color:#DDDDDD ;">
                         </form>
 
                     </div>
