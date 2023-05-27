@@ -119,9 +119,9 @@ $link = @mysqli_connect('localhost', 'root', '12345678', 'sa'); ?>
                 </style>
                 <?php
                 //這裡是detail，所以會看到標題和內容
-                $NewsID = $_GET["newsID"];
+                $infoID= $_GET["infoID"];
 
-                $sql = "select * from shopnews where NewsID = '$NewsID'";
+                $sql = "select * from information where infoID = '$infoID'";
                 $result = mysqli_query($link, $sql);
 
                 ?>
@@ -148,11 +148,11 @@ $link = @mysqli_connect('localhost', 'root', '12345678', 'sa'); ?>
 
                                 <?php if($_SESSION['level'] == 'admin'){?>
                                     <div style="text-align: center;">
-                                        <a href="announce_up.php?NewsID=<?php echo $NewsID; ?>"
+                                        <a href="infoUpdate.php?infoID=<?php echo $infoID; ?>"
                                             style="float: right; width: 70px;height: 20px; border-radius: 4px;background-color: #70c745; color: white; border-color:#DDDDDD ;">修改</a>
 
 
-                                        <a href="announce_de.php?NewsID=<?php echo $NewsID; ?>"
+                                        <a href="infoDelete.php?infoID=<?php echo $infoID; ?>"
                                             style="float: left; width: 70px;height: 20px; border-radius: 4px;background-color: #70c745; color: white; border-color:#DDDDDD ;">刪除</a>
 
 
