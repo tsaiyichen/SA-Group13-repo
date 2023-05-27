@@ -156,6 +156,11 @@
                                                 <?php echo $row["name"]; ?>
                                             </h6>
                                             <p>價格: $<?php echo $row['price'];?></p>
+                                            <?php
+                                            if($row['isUP'] == 0){
+                                                echo "(已下架，無法從商店中獲得)";
+                                            }
+                                            ?>
                                             <style>
                                                 .text-area {
                                                     word-wrap: break-word;
