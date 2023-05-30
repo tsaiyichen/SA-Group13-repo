@@ -146,13 +146,29 @@
             <div class="row">
                 <div class="col-12">
                     <div class="cart-table clearfix">
+
+
+                    <?php
+                    $link = @mysqli_connect('localhost', 'root', '12345678', 'sa');
+                    // 檢查是否有傳遞 articleID 參數
+                    if (isset($_GET['articleID'])) {
+                        $articleID = $_GET['articleID'];
+
+                        // 更新資料庫中的點擊數
+                        $updateQuery = "UPDATE article SET click = click + 1 WHERE articleID = $articleID";
+                        mysqli_query($link, $updateQuery);
+                    }
+                    $sql = "SELECT * FROM article WHERE articleID = '$articleID'";
+                    $result = mysqli_query($link, $sql);
+                    $row = mysqli_fetch_assoc($result);
+                    ?>
                         <table class="table table-responsive">
                             <thead>
                                 <tr>
-                                    <h3>#標題</h3>
+                                    <h3><?php echo $row['title'];?></h3>
                                 </tr>
                                 <tr>
-                                    <p style="display:inline;">發文者：TYC&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2023/5/28&nbsp;&nbsp;&nbsp;23:11</p>
+                                    <p style="display:inline;">發文者：<?php echo $row['userID'];?> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $row['time']; ?></p>
                                 </tr>
 
 
@@ -161,32 +177,29 @@
                                 <tr>
                                     <td >
 
-                                        <p>內文：先講結論，後來有一起走完3天2夜的行程，平安回台
-                                            以下針對前一篇文章回應
-
-                                            餐廳是香港阿甘蝦餐廳，大家去查菜單就可以發現並非"全蝦餐廳"，還是有很多與蝦無關的餐點，原po說她有拍當天的餐點，不如請她po照片看看是否餐點全是蝦??全蝦餐廳可以點到雞胸肉?連牛排都淋龍蝦醬?
-
-                                            我愛吃蝦、我一定要吃蝦、一定要去阿甘蝦餐廳、每個人一定要點餐、一定要點蝦餐點
-                                            我想這些都是不同概念，不要混為一談了
-                                            我愛吃蝦? ==>對
-                                            我一定要吃蝦? ==>不對
-                                            一定要去阿甘蝦餐廳?==>事前可以討論但沒討論，事後訂了餐廳下午5點一定要去，總不能no show吧
-                                            每個人一定要點餐? ==>對，餐廳外面就這樣公告
-                                            一定要點蝦餐點? ==>不對，看菜單還有很多非蝦餐點
-
-                                            為什麼點餐的時候我不高興?
-                                            這次3天2夜的國外旅行，事前確定的行程只有2個，一個是太平山纜車、另一個是下午5點的阿甘蝦餐廳
-                                            1. 因為假日習慣是中午起床後吃早午餐，所以早上沒吃早餐，結果11點的飛機，她因為飛機餐難吃就不吃，導致下午3點check in完飯店後喊肚子餓，臨時找一個茶餐廳填肚子，忘記下午5點還有阿甘蝦餐廳?
-                                            2. 到了太平山準備搭纜車了，問"為什麼要來這裡?"</p>
+                                        <p>
+                                        <?php echo $row['content']; ?>
+                                        </p>
                                     </td>
                                 </tr>
 
                             </tbody>
 
                         </table>
-                        <p>文章點擊率：600次</p>
+                        <p>文章點擊數：<?php echo $row['click']; ?></p>
+                        <?php if($_SESSION['userID'] == $row['userID']){
+                        ?>
+                        <form action="talkUpdate.php" method="GET">
+                        <input type="hidden" name="articleIDCurrent" value="<?php echo $articleID;?>">
                         <button type="submit" style="width: 100px;height: 40px; border-radius: 4px;background-color: #70c745; color: white; border-color:#DDDDDD ;">修改</button>
+                        </form>
+                        <form action="talkDelete.php" method="GET">
+                        <input type="hidden" name="articleIDCurrent" value="<?php echo $articleID;?>">
                         <button type="submit" style="width: 100px;height: 40px; border-radius: 4px;background-color: #70c745; color: white; border-color:#DDDDDD ;">刪除</button>
+                        </form>
+                        <?php
+                        }
+                        ?>
                     </div>
                 </div>
             </div>
@@ -195,6 +208,12 @@
             <div class="row">
                 <div class="col-12">
                     <div class="cart-table clearfix">
+
+                    <?php
+                    $sql2 = "SELECT * FROM response WHERE articleID = $articleID";
+                    $result2 = mysqli_query($link, $sql2);
+                    $currentUserID = $_SESSION['userID'];
+                    ?>
                         <table class="table table-responsive">
                             <thead>
 
@@ -205,19 +224,17 @@
 
                                 </tr>
                                 <br><br>
-                                <tr>
-                                    <h6>YYT：</h6>妳好，我覺得你說的很棒
-                                </tr><hr>
-                                <tr>
-                                    <h6>lulu：</h6>我不這麼認為啊啊啊啊啊啊啊啊啊啊啊啊啊
-                                </tr><hr>
-                                <tr>
-                                    <h6>季ㄅ：</h6>嘿嘿嘿嘿嘿
-                                </tr><hr>
+                                <?php
+                                while($row2 = mysqli_fetch_assoc($result2)){
+                                    echo "<tr><h6>".$row2['userID']."：</h6>".$row2['content']."</tr><hr>";
+                                }
+                                ?>
                             </tbody>
 
                             <div class="coupon-discount mt-70">
-                            <form action="#" method="post">
+                            <form action="response.php" method="GET">
+                                <input type="hidden" name="articleID" value="<?php echo $articleID; ?>">
+                                <input type="hidden" name="userID" value="<?php echo $currentUserID; ?>">
                                 <input name="content" style="width: 1000px; height: 40px;" placeholder="我想說...">&nbsp;
                                 <button type="submit" style="width: 100px;height: 40px; border-radius: 4px;background-color: #70c745; color: white; border-color:#DDDDDD ;">發布</button>
                             </form>

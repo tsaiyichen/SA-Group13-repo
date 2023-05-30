@@ -149,24 +149,24 @@
                     <div class="cart-table clearfix">
                         <table class="table table-responsive table-hover">
 
-                            <tbody>
 
-                                <tr>
-                                    <td><h6>環保小尖兵</h6><td>
-                                    <td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>
-                                    <td><p>文章點擊率：100次</p><td>
-                                </tr>
-                                <tr>
-                                <tr>
-                                    <td><h6>環保小尖兵w</h6><td>
-                                    <td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>
-                                    <td><p>文章點擊率：100次</p><td>
-                                </tr>
-                                <tr>
-                                    <td><h6>環保小尖兵ww</h6><td>
-                                    <td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>
-                                    <td><p>文章點擊率：100次</p><td>
-                                </tr>
+<?php
+$link = @mysqli_connect('localhost', 'root', '12345678', 'sa');
+$sql = "SELECT * FROM article";
+$result = mysqli_query($link, $sql);
+
+?>
+                            <tbody>
+                                <?php
+                                while($row=mysqli_fetch_assoc($result)){
+                                $articleID = $row['articleID'];
+                                echo '<tr>';
+                                echo '<td><a href="talkDetail.php?articleID=' . $articleID . '"><h6>'.$row['title']."</h6></a><td>";
+                                echo "<td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>";
+                                echo "<td><p>文章點擊數：".$row['click']."次</p><td></tr>";
+                                }
+                                ?>
+
 
                             </tbody>
 
