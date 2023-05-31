@@ -106,6 +106,7 @@
             <div class="row">
                 <div class="col-12">
                     <div class="cart-table clearfix">
+                    <a href="upTalk.php"><button type="button" style="width: 100px;height: 40px; border-radius: 4px;background-color: #70c745; color: white; border-color:#DDDDDD ;">發布文章</button></a><br><br>
                         <table class="table table-responsive table-hover">
 
 

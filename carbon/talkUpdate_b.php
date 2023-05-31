@@ -1,5 +1,5 @@
 <?php
-$articleID = $_GET['article'];
+$articleID = $_GET['articleID'];
 $newTitle = $_GET['newTitle'];
 $newContent = $_GET['newContent'];
 
@@ -12,7 +12,7 @@ if($result){
 ?>
 <script language="javascript">
     alert("修改成功");
-    location.href="talk.php";
+    location.href="talkDetail.php?articleID=<?php echo $articleID?>";
 </script>
 <?php
 }else{

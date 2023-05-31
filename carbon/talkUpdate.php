@@ -54,48 +54,7 @@
                             </div>
 
                             <!-- Navbar Start -->
-                            <div class="classynav">
-                                <ul>
-                                    <li><a href="index.html">Home</a></li>
-                                    <li><a href="about.html">About</a></li>
-                                    <li><a href="#">Pages</a>
-                                        <ul class="dropdown">
-                                            <li><a href="index.html">Home</a></li>
-                                            <li><a href="about.html">About</a></li>
-                                            <li><a href="shop.html">Shop</a>
-                                                <ul class="dropdown">
-                                                    <li><a href="shop.html">Shop</a></li>
-                                                    <li><a href="shop-details.html">Shop Details</a></li>
-                                                    <li><a href="cart.html">Shopping Cart</a></li>
-                                                    <li><a href="checkout.html">Checkout</a></li>
-                                                </ul>
-                                            </li>
-                                            <li><a href="portfolio.html">Portfolio</a>
-                                                <ul class="dropdown">
-                                                    <li><a href="portfolio.html">Portfolio</a></li>
-                                                    <li><a href="single-portfolio.html">Portfolio Details</a></li>
-                                                </ul>
-                                            </li>
-                                            <li><a href="blog.html">Blog</a>
-                                                <ul class="dropdown">
-                                                    <li><a href="blog.html">Blog</a></li>
-                                                    <li><a href="single-post.html">Blog Details</a></li>
-                                                </ul>
-                                            </li>
-                                            <li><a href="contact.html">Contact</a></li>
-                                        </ul>
-                                    </li>
-                                    <li><a href="shop.html">Shop</a></li>
-                                    <li><a href="portfolio.html">Portfolio</a></li>
-                                    <li><a href="contact.html">Contact</a></li>
-                                </ul>
-
-                                <!-- Search Icon -->
-                                <div id="searchIcon">
-                                    <i class="fa fa-search" aria-hidden="true"></i>
-                                </div>
-
-                            </div>
+                            <?php include "navBar.php"; ?>
                             <!-- Navbar End -->
                         </div>
                     </nav>
@@ -150,12 +109,20 @@
 
                 <div class="col-12 col-md-6">
                     <!-- Section Heading -->
+                    <?php
+                    $currentArticleID = $_GET['articleIDCurrent'];
+                    $link = mysqli_connect('localhost', 'root', '12345678', 'sa');
+                    $sql = "SELECT * FROM article WHERE articleID = $currentArticleID";
+                    $result = mysqli_query($link, $sql);
+                    $row = mysqli_fetch_assoc($result);
+                    ?>
                     <div class="section-heading">
-                        <form method="post" action="talkUpdate_b.php" style="font-size: 20px;"><br><br>
+                        <form method="GET" action="talkUpdate_b.php" style="font-size: 20px;"><br><br>
                             標題：<br>
-                            <input type="text" name="title" required style="width:450px;"><br><br>
+                            <input type="hidden" name="articleID" value="<?php echo $row['articleID'];?>">
+                            <input type="text" name="newTitle" required style="width:450px;" value="<?php echo $row['title'];?>"><br><br>
                             內文：<br>
-                            <textarea name="content" required style="width:450px;height:100px;"></textarea><br><br>
+                            <textarea name="newContent" required style="width:450px;height:100px;"><?php echo $row['content'];?></textarea><br><br>
                             <input type="submit" value="修改" name="submit" style="width: 70px;height: 40px; border-radius: 4px;background-color: #70c745; color: white; border-color:#DDDDDD ;">
                         </form>
 

@@ -1,10 +1,10 @@
 <?php
-$articleID = $_GET['article'];
+$articleID = $_GET['articleIDCurrent'];
 
 $link = mysqli_connect('localhost', 'root', '12345678', 'sa');
 $sql = "DELETE FROM article WHERE articleID = '$articleID'";
 
-$result = mysqli_query($link. $sql);
+$result = mysqli_query($link, $sql);
 
 if($result){
 ?>
