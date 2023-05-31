@@ -117,7 +117,7 @@
                         $updateQuery = "UPDATE article SET click = click + 1 WHERE articleID = $articleID";
                         mysqli_query($link, $updateQuery);
                     }
-                    $sql = "SELECT * FROM article WHERE articleID = '$articleID'";
+                    $sql = "SELECT * FROM article, account WHERE articleID = '$articleID' AND article.userID = account.userID";
                     $result = mysqli_query($link, $sql);
                     $row = mysqli_fetch_assoc($result);
                     ?>
@@ -127,7 +127,11 @@
                                     <h3><?php echo $row['title'];?></h3>
                                 </tr>
                                 <tr>
-                                    <p style="display:inline;">發文者：<?php echo $row['userID'];?> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $row['time']; ?></p>
+                                    <p style="display:inline;">發文者：<?php echo $row['userID'];
+                                    if($row['level'] == "admin"){
+                                        echo("(管理員)");
+                                    }
+                                    ?> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $row['time']; ?></p>
                                 </tr>
 
 
@@ -146,7 +150,7 @@
 
                         </table>
                         <p>文章點擊數：<?php echo $row['click']; ?></p>
-                        <?php if($_SESSION['userID'] == $row['userID']){
+                        <?php if($_SESSION['userID'] == $row['userID'] OR $_SESSION['level'] == "admin"){
                         ?>
                         <form action="talkUpdate.php" method="GET">
                         <input type="hidden" name="articleIDCurrent" value="<?php echo $articleID;?>">
