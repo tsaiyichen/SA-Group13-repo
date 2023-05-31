@@ -57,48 +57,7 @@
                             </div>
 
                             <!-- Navbar Start -->
-                            <div class="classynav">
-                                <ul>
-                                    <li><a href="index.html">Home</a></li>
-                                    <li><a href="about.html">About</a></li>
-                                    <li><a href="#">Pages</a>
-                                        <ul class="dropdown">
-                                            <li><a href="index.html">Home</a></li>
-                                            <li><a href="about.html">About</a></li>
-                                            <li><a href="shop.html">Shop</a>
-                                                <ul class="dropdown">
-                                                    <li><a href="shop.html">Shop</a></li>
-                                                    <li><a href="shop-details.html">Shop Details</a></li>
-                                                    <li><a href="cart.html">Shopping Cart</a></li>
-                                                    <li><a href="checkout.html">Checkout</a></li>
-                                                </ul>
-                                            </li>
-                                            <li><a href="portfolio.html">Portfolio</a>
-                                                <ul class="dropdown">
-                                                    <li><a href="portfolio.html">Portfolio</a></li>
-                                                    <li><a href="single-portfolio.html">Portfolio Details</a></li>
-                                                </ul>
-                                            </li>
-                                            <li><a href="blog.html">Blog</a>
-                                                <ul class="dropdown">
-                                                    <li><a href="blog.html">Blog</a></li>
-                                                    <li><a href="single-post.html">Blog Details</a></li>
-                                                </ul>
-                                            </li>
-                                            <li><a href="contact.html">Contact</a></li>
-                                        </ul>
-                                    </li>
-                                    <li><a href="shop.html">Shop</a></li>
-                                    <li><a href="portfolio.html">Portfolio</a></li>
-                                    <li><a href="contact.html">Contact</a></li>
-                                </ul>
-
-                                <!-- Search Icon -->
-                                <div id="searchIcon">
-                                    <i class="fa fa-search" aria-hidden="true"></i>
-                                </div>
-
-                            </div>
+                            <?php include "navBar.php"; ?>
                             <!-- Navbar End -->
                         </div>
                     </nav>
@@ -210,7 +169,7 @@
                     <div class="cart-table clearfix">
 
                     <?php
-                    $sql2 = "SELECT * FROM response WHERE articleID = $articleID";
+                    $sql2 = "SELECT * FROM response, account WHERE articleID = $articleID AND account.userID = response.userID";
                     $result2 = mysqli_query($link, $sql2);
                     $currentUserID = $_SESSION['userID'];
                     ?>
@@ -226,7 +185,12 @@
                                 <br><br>
                                 <?php
                                 while($row2 = mysqli_fetch_assoc($result2)){
-                                    echo "<tr><h6>".$row2['userID']."：</h6>".$row2['content']."</tr><hr>";
+                                    echo "<tr><h6>".$row2['userID'];
+                                    if($row2['level'] == "admin"){
+                                        echo "(管理者)";
+                                    }
+                                    echo "：</h6>".$row2['content'];
+                                    echo "</tr><hr>";
                                 }
                                 ?>
                             </tbody>

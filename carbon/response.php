@@ -1,5 +1,5 @@
 <?php
-$articleID = $_GET['article'];
+$articleID = $_GET['articleID'];
 $userID = $_GET['userID'];
 $content = $_GET['content'];
 
@@ -12,7 +12,7 @@ if($result){
 ?>
 <script language="javascript">
     alert("已回覆!!");
-    location.href="talk.php";
+    history.back();
 </script>
 <?php
 }else{
