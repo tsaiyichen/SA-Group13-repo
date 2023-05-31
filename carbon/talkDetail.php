@@ -150,12 +150,16 @@
 
                         </table>
                         <p>文章點擊數：<?php echo $row['click']; ?></p>
-                        <?php if($_SESSION['userID'] == $row['userID'] OR $_SESSION['level'] == "admin"){
+                        <?php if($_SESSION['userID'] == $row['userID']){
                         ?>
                         <form action="talkUpdate.php" method="GET">
                         <input type="hidden" name="articleIDCurrent" value="<?php echo $articleID;?>">
                         <button type="submit" style="width: 100px;height: 40px; border-radius: 4px;background-color: #70c745; color: white; border-color:#DDDDDD ;">修改</button>
                         </form>
+                        <?php
+                        }
+                        if($_SESSION['level'] == "admin" OR $_SESSION['userID'] == $row['userID']){
+                        ?>
                         <form action="talkDelete.php" method="GET">
                         <input type="hidden" name="articleIDCurrent" value="<?php echo $articleID;?>">
                         <button type="submit" style="width: 100px;height: 40px; border-radius: 4px;background-color: #70c745; color: white; border-color:#DDDDDD ;">刪除</button>
@@ -190,6 +194,9 @@
                                 <?php
                                 while($row2 = mysqli_fetch_assoc($result2)){
                                     echo "<tr><h6>".$row2['userID'];
+                                    if($row2['userID'] == $row['userID']){
+                                        echo "(原PO)";
+                                    }
                                     if($row2['level'] == "admin"){
                                         echo "(管理者)";
                                     }
