@@ -10,6 +10,7 @@ $result = mysqli_query($link, $sql);
 $count = 0;
 while($row = mysqli_fetch_assoc($result)){
     $ID[$count] = $row['itemID'];
+    $name[$count] = $row['itemName'];
     $value[$count] = $row['itemCarbon'];
     $count++;
 }
@@ -22,7 +23,10 @@ $nowID = $row['nowID'];
 
 //Calculate the Carbon emission
 $trafficCarbon = 0;
-$input = array($_GET['car'], $_GET['motor']);
+    $input = [];
+    for($j = 0; $j < count($name); $j++){
+        $input[$j] = $_GET[$name[$j]];
+    }
 for($i = 0; $i < count($input); $i++){
    if($input[$i] % 10 >= 5){
        $trafficPointDeduction += ceil($input[$i] / 10);

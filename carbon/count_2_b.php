@@ -9,6 +9,7 @@ $result = mysqli_query($link, $sql);
 $count = 0;
 while($row = mysqli_fetch_assoc($result)){
     $ID[$count] = $row['itemID'];
+    $name[$count] = $row['itemName'];
     $value[$count] = $row['itemCarbon'];
     $count++;
 }
@@ -21,7 +22,10 @@ $nowID = $row['nowID'];
 
 //Calculate the Carbon emission
 $reduceTableware = 0;
-$input = array($_GET['fplate'], $_GET['fstick'], $_GET['fspoon'], $_GET['fcup'], $_GET['fstraw'], $_GET['fbag']);
+    $input = [];
+    for($j = 0; $j < count($name); $j++){
+        $input[$j] = $_GET[$name[$j]];
+    }
     for($i = 0; $i < count($input); $i++){
         if($input[$i] != 0){
             $tablewarePointAddition++;
