@@ -20,6 +20,7 @@ $nowID = $row['nowID'];
 
 
 //Calculate the Carbon emission
+$tablewarePointAddition = 0;
 $reduceTableware = 0;
 $input = array($_GET['fplate'], $_GET['fstick'], $_GET['fspoon'], $_GET['fcup'], $_GET['fstraw'], $_GET['fbag']);
     for($i = 0; $i < count($input); $i++){
@@ -34,7 +35,7 @@ $input = array($_GET['fplate'], $_GET['fstick'], $_GET['fspoon'], $_GET['fcup'],
             echo "recordDetail error!";
         }
     }
-$sql2 = "UPDATE record SET getPoint = getPoint + $tablewarePointAddition WHERE number = '$number' AND userID = '$currentUserID'";
+$sql2 = "UPDATE record SET getPoint = getPoint + $tablewarePointAddition WHERE recordID = '$nowID'";
 $result2 = mysqli_query($link, $sql2);
 
 //locate to count_3.php
