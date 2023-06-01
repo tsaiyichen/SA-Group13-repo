@@ -20,7 +20,6 @@ $nowID = $row['nowID'];
 
 
 //Calculate the Carbon emission
-$tablewarePointAddition = 0;
 $reduceTableware = 0;
 $input = array($_GET['fplate'], $_GET['fstick'], $_GET['fspoon'], $_GET['fcup'], $_GET['fstraw'], $_GET['fbag']);
     for($i = 0; $i < count($input); $i++){

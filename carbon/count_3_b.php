@@ -22,7 +22,6 @@ $nowID = $row['nowID'];
 
 //Calculate the Carbon emission
 $trafficCarbon = 0;
-$trafficPointDeduction = 0;
 $input = array($_GET['car'], $_GET['motor']);
 for($i = 0; $i < count($input); $i++){
    if($input[$i] % 10 >= 5){
