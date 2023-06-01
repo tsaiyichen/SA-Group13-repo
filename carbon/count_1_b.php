@@ -31,12 +31,15 @@ $nowID = $row['nowID'];
         if($input[$i] != 0){
             $tablewarePointDeduction++;
         }
-        $sql = "INSERT INTO recorddetail (recordID, itemID, count) VALUES ('$nowID', '$ID[$i]', '$input[$i]')";
+        $carbonDetail = $input[$i] * $value[$i];
+        $tablewareCarbon += $carbonDetail;
+        $sql = "INSERT INTO recorddetail (recordID, itemID, count, carbonDetail) VALUES ('$nowID', '$ID[$i]', '$input[$i]', '$carbonDetail')";
         $result = mysqli_query($link, $sql);
         if(!($result)){
             echo "recordDetail error!";
         }
-        $tablewareCarbon += $input[$i] * $value[$i];
+
+
 
     }
 $sql3 = "UPDATE record set getPoint = getPoint - $tablewarePointDeduction, tablewareCarbon = '$tablewareCarbon' WHERE recordID = '$nowID'";
