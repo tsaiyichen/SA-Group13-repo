@@ -11,6 +11,7 @@ $result = mysqli_query($link, $sql);
 $count = 0;
 while($row = mysqli_fetch_assoc($result)){
     $ID[$count] = $row['itemID'];
+    $name[$count] = $row['itemName'];
     $value[$count] = $row['itemCarbon'];
     $count++;
 }
@@ -25,8 +26,11 @@ $result = mysqli_query($link, $sql);
 $row = mysqli_fetch_assoc($result);
 $nowID = $row['nowID'];
 //calculate the carbon
+    $input = [];
+    for($j = 0; $j < count($name); $j++){
+        $input[$j] = $_GET[$name[$j]];
+    }
     $tablewareCarbon = 0;
-    $input = array($_GET['stick'], $_GET['bag'], $_GET['straw'], $_GET['cup'], $_GET['spoon'], $_GET['paper']);
     for($i = 0; $i < count($input); $i++){
         if($input[$i] != 0){
             $tablewarePointDeduction++;
