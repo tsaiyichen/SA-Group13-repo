@@ -104,6 +104,20 @@
                 <canvas id="myChart"></canvas>
                 <script src="theChart.js"></script>
              </div>
+             <div class="container">
+                <form action="" method="GET">
+                詳細資料：
+                    <select name="type">
+                        <option value="sum">總計</option>
+                        <option value="badTableware">一次性餐具</option>
+                        <option value="goodTableware">環保餐具</option>
+                        <option value="badTraffic">不環保交通工具</option>
+                        <option value="goodTraffic">環保交通工具</option>
+                    </select>
+                    <input type="submit" value="查看細項" style="width: 100px;height: 30px; border-radius: 4px;background-color: #70c745; color: white; border-color: #DDDDDD;">
+                </form>
+                <?php include "historyTable.php";?>
+             </div>
          </div>
 
 
