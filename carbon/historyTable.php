@@ -21,17 +21,14 @@ if(isset($_GET['type'])){
             }
         ?>
 
-        <?php
-            if($type="badTableware")
-        ?><th scope="row">一次性餐具所產生之碳排放量</th>
+        <th scope="row">一次性餐具所產生之碳排放量</th>
         <th scope="row">交通所產生之碳排放量</th>
         <th scope="row">獲得點數</th>
     </tr>
-    <tr>
         <?php
             while($row = mysqli_fetch_assoc($result)){
                 $nowID = $row['recordID'];
-                echo '<td>'.$row['recordTime'].'</td>';
+                echo '<tr><td>'.$row['recordTime'].'</td>';
                 for($i = 0; $i < count($ID); $i++){
                     $sql3 = "SELECT count FROM recorddetail WHERE recordID = '$nowID' AND itemID = '$ID[$i]'";
                     $result3 = mysqli_query($link, $sql3);
@@ -41,9 +38,8 @@ if(isset($_GET['type'])){
 
                 echo '<td>'.$row['tablewareCarbon'].'</td>';
                 echo '<td>'.$row['trafficCarbon'].'</td>';
-                echo '<td>'.$row['getPoint'].'</td>';
+                echo '<td>'.$row['getPoint'].'</td></tr>';
             }
         ?>
-    </tr>
 </table>
 <?php }?>
