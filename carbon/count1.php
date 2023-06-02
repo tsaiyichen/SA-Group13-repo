@@ -111,10 +111,14 @@
                         <!-- Single Progress Bar -->
                         <canvas id="myChart"></canvas>
                         <script src="myChart.js"></script>
+                        <br><br>
+                        <canvas id="reduceChart"></canvas>
+                        <script src="reduceChart.js"></script>
+
                         <form action="count1.php" method="get">
                         <input type="hidden" value="display" name="display">
                         <input type="hidden" value="<?php echo date('Y-m-d');?>" name="currentDate">
-                        <input type="submit" value="詳細資料" style="width: 100px;height: 30px; border-radius: 4px;background-color: #70c745; color: white; border-color: #DDDDDD;">
+                        <input type="submit" value="今日詳細資料" style="width: 100px;height: 30px; border-radius: 4px;background-color: #70c745; color: white; border-color: #DDDDDD;">
                         </form>
 
                         <?php if($_GET['display'] == "display"){

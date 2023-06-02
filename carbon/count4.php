@@ -109,7 +109,10 @@
                     <!-- Progress Bar Content Area -->
                     <div class="alazea-progress-bar mb-50">
                         <canvas id="myChart"></canvas>
-                                                <script src="myChart.js"></script>
+                        <script src="myChart.js"></script>
+                        <br><br>
+                        <canvas id="reduceChart"></canvas>
+                        <script src="reduceChart.js"></script>
                                                 <form action="count4.php" method="get">
                                                                         <input type="hidden" value="display" name="display">
                                                                         <input type="hidden" value="<?php echo date('Y-m-d');?>" name="currentDate">
