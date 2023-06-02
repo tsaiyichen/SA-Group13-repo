@@ -21,24 +21,24 @@ $nowID = $row['nowID'];
 
 
 //Calculate the Carbon emission
-$reduceTableware = 0;
     $input = [];
     for($j = 0; $j < count($name); $j++){
         $input[$j] = $_GET[$name[$j]];
     }
+    $tablewareReduction = 0;
     for($i = 0; $i < count($input); $i++){
         if($input[$i] != 0){
             $tablewarePointAddition++;
         }
         $carbonDetail = $input[$i] * $value[$i];
-        $reduceTableware += $carbonDetail;
+        $tablewareReduction += $carbonDetail;
         $sql = "INSERT INTO recorddetail (recordID, itemID, count, carbonDetail) VALUES ('$nowID', '$ID[$i]', '$input[$i]', '$carbonDetail')";
         $result = mysqli_query($link, $sql);
         if(!($result)){
             echo "recordDetail error!";
         }
     }
-$sql2 = "UPDATE record SET getPoint = getPoint + $tablewarePointAddition WHERE recordID = '$nowID'";
+$sql2 = "UPDATE record SET getPoint = getPoint + $tablewarePointAddition, tablewareReduction = '$tablewareReduction' WHERE recordID = '$nowID'";
 $result2 = mysqli_query($link, $sql2);
 
 //locate to count_3.php

@@ -25,11 +25,13 @@ $input = [];
     for($j = 0; $j < count($name); $j++){
         $input[$j] = $_GET[$name[$j]];
     }
+    $trafficReduction = 0;
     for($i = 0; $i < count($input); $i++){
         if($input[$i] != 0){
             $trafficPointAddition++;
         }
         $carbonDetail = $input[$i] * $value[$i];
+        $trafficReduction += $carbonDetail;
         $sql = "INSERT INTO recorddetail (recordID, itemID, count, carbonDetail) VALUES ('$nowID', '$ID[$i]', '$input[$i]', '$carbonDetail')";
         $result = mysqli_query($link, $sql);
         if(!($result)){
@@ -38,7 +40,7 @@ $input = [];
     }
 
 
-$sql2 = "UPDATE record set getPoint = getPoint + $trafficPointAddition WHERE recordID = '$nowID'";
+$sql2 = "UPDATE record set getPoint = getPoint + $trafficPointAddition, trafficReduction = '$trafficReduction' WHERE recordID = '$nowID'";
 $result2 = mysqli_query($link, $sql2);
 
 //settlement
