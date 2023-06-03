@@ -105,6 +105,10 @@
                 <script src="theChart.js"></script>
              </div>
              <div class="container">
+             <canvas id="historyChart"></canvas>
+             <script src="historyChart.js"></script>
+             </div>
+             <div class="container">
                 <form action="" method="GET">
                 詳細資料：
                     <select name="type">
