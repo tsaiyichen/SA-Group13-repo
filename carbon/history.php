@@ -121,7 +121,7 @@
                     </select>
                     <input type="submit" value="查看細項" style="width: 100px;height: 30px; border-radius: 4px;background-color: #70c745; color: white; border-color: #DDDDDD;">
                 </form>
-                <?php include "historyTable.php";?>
+                <?php include "tableHistory.php";?>
              </div>
          </div>
 
