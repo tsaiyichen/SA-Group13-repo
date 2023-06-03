@@ -64,6 +64,7 @@ if($_SESSION['level'] == 'user'){
                                             <li><a href="announce.php">怪獸商店公告發佈</a></li>
                                             <li><a href="goods.php">新商品發佈</a></li>
                                             <li><a href="picture.php">怪獸圖鑑管理</a></li>
+                                            <li><a href="level.php">權限管理</a></li>
                                         </ul>
                                     </li>
                                     <li><a href="logout.php"><font style="color:#70c745;">Hi&nbsp&nbsp <?php echo $_SESSION['name']."  登出"?></font></a></li>
