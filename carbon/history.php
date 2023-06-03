@@ -112,6 +112,7 @@
                 <form action="" method="GET">
                 詳細資料：
                     <select name="type">
+                        <option value="0"></option>
                         <option value="sum">總計</option>
                         <option value="badTableware">一次性餐具</option>
                         <option value="goodTableware">環保餐具</option>
