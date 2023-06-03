@@ -22,6 +22,7 @@ if($_SESSION['level'] == 'user'){
                                         <ul class="dropdown">
                                             <li><a href="shopNews.php">公告</a></li>
                                             <li><a href="information.php">相關資訊</a></li>
+                                            <li><a href="talk.php">討論區</a></li>
                                         </ul>
                                     </li>
                                     <li><a href="shop.php">怪獸商店</a></li>
@@ -54,6 +55,7 @@ if($_SESSION['level'] == 'user'){
                                         <ul class="dropdown">
                                             <li><a href="shopNews.php">公告</a></li>
                                             <li><a href="information.php">相關資訊</a></li>
+                                            <li><a href="talk.php">討論區</a></li>
                                         </ul>
                                     </li>
 
