@@ -139,7 +139,7 @@
                             <div class="row">
                                 <?php
                                     $count = 0;
-                                while ($row = mysqli_fetch_assoc($result)) {
+                                while($row = mysqli_fetch_assoc($result)) {
                                     $count += 1;
                                     ?>
                                 <!-- Single Product Area -->
@@ -156,6 +156,11 @@
                                                 <?php echo $row["name"]; ?>
                                             </h6>
                                             <p>價格: $<?php echo $row['price'];?></p>
+                                            <?php
+                                            if($row['isUP'] == 0){
+                                                echo "(已下架，無法從商店中獲得)";
+                                            }
+                                            ?>
                                             <style>
                                                 .text-area {
                                                     word-wrap: break-word;
@@ -169,9 +174,19 @@
                                             <?php if($_SESSION['level'] == 'admin'){?>
                                              <a href="upPicture.php?monsterID=<?php echo $monsterID; ?>"
                                              style="float: right; width: 70px;height: 20px; border-radius: 4px;background-color: #70c745; color: white; border-color:#DDDDDD ;">修改</a>
-                                            <a href="deletePicture.php?monsterID=<?php echo $monsterID; ?>"
-                                            style="float: left; width: 70px;height: 20px; border-radius: 4px;background-color: #70c745; color: white; border-color:#DDDDDD ;">刪除</a>
-                                        <?php } ?>
+                                            <?php if($row['isUP']){ ?>
+                                            <a href="deletePicture.php?monsterID=<?php echo $monsterID;?>&isUP=0"
+                                            style="float: left; width: 70px;height: 20px; border-radius: 4px;background-color: #70c745; color: white; border-color:#DDDDDD ;">下架</a>
+                                            <?php } else{   ?>
+                                            <a href="deletePicture.php?monsterID=<?php echo $monsterID;?>&isUP=1"
+                                            style="float: left; width: 70px;height: 20px; border-radius: 4px;background-color: #70c745; color: white; border-color:#DDDDDD ;">重新上架</a>
+                                            <?php } ?>
+                                        <?php }else{
+                                        ?>
+                                            <a href="downloadPicture.php?monsterID=<?php echo $monsterID;?>"
+                                            style="float: left; width: 70px;height: 20px; border-radius: 4px;background-color: #70c745; color: white; border-color:#DDDDDD ;">下載圖片</a>
+                                        <?php
+                                        } ?>
 
                                         </div>
                                     </div>
