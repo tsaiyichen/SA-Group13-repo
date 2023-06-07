@@ -100,8 +100,14 @@
                                 <div id="nav">
                                     <h2 style="color:white;" >最新公告</h2>
                                     <br>
-                                    <p style="color:white;font-size:18px;" >新怪獸來嚕！</p>
-                                    <p style="color:white;font-size:18px;" >系統維修公告！</p>
+                                    <?php
+                                        $link = mysqli_connect('localhost', 'root', '12345678', 'sa');
+                                        $sql = "SELECT * FROM shopNews WHERE NewsID = (SELECT MAX(NewsID) FROM shopNews)";
+                                        $result = mysqli_query($link, $sql);
+                                        $row = mysqli_fetch_assoc($result);
+                                    ?>
+                                    <a href="detail.php?newsID=<?php echo $row['NewsID']?>"><p style="color:white;font-size:18px;" ><?php echo $row['title'];?></p></a>
+                                    <a href="shopNews.php"><p style="color:white;font-size:18px;" >查看更多...</p></a>
                                 </div>
                             </div>
                         </div>
@@ -113,8 +119,14 @@
                                 <div id="nav">
                                     <h2 style="color:white;" >相關資訊</h2>
                                     <br>
-                                    <p><a href="https://udn.com/news/story/7238/7114442" target="_blank" style="font-size:18px;font-weight:bolder;color:white;"><u>15家標竿服務業響應 邁向2050淨零排放</u></a></p>
-                                    <p><a href="https://udn.com/news/story/7238/7114291" target="_blank" style="font-size:18px;font-weight:bolder;color:white;"><u>金寶攜康展電力搶再生能源採購市場 拚2030達成碳中和</u></a></p>
+                                    <?php
+                                    $sql = "SELECT * FROM information WHERE infoID = (SELECT MAX(infoID) FROM information)";
+                                    $result = mysqli_query($link, $sql);
+                                    $row = mysqli_fetch_assoc($result);
+                                    ?>
+                                    <a href="infoDetail.php?infoID=<?php echo $row['infoID']?>"><p style="color:white;font-size:18px;" ><?php echo $row['title'];?></p></a>
+                                    <a href="info.php"><p style="color:white;font-size:18px;" >查看更多...</p></a>
+
                                 </div>
                             </div>
                         </div>
