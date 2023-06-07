@@ -1,38 +1,52 @@
 <?php
-$value['stick'] = 0.05;
-$value['straw'] = 0.004;
-$value['bag'] = 0.057;
-$value['cup'] = 0.008;
-$value['spoon'] = 0.0037;
-$value['paper'] = 0.005;
+$value = [];
+
 $link = @mysqli_connect('localhost', 'root', '12345678', 'sa');
 session_start();
 //create the record
 $currentUserID = $_SESSION['userID'];
 $tablewarePointDeduction = 0;
-$sql = "SELECT * FROM record WHERE userID = '$currentUserID'";
+$sql = 'SELECT * FROM item WHERE itemType = "badTableware"';
 $result = mysqli_query($link, $sql);
 $count = 0;
-While($row = mysqli_fetch_assoc($result)){
+while($row = mysqli_fetch_assoc($result)){
+    $ID[$count] = $row['itemID'];
+    $name[$count] = $row['itemName'];
+    $value[$count] = $row['itemCarbon'];
     $count++;
 }
-if($count == 0){
-    $number = 1;
-}else{
-    $number = $count + 1;
+$sql = "INSERT INTO record (userID) VALUES ('$currentUserID')";
+$result = mysqli_query($link, $sql);
+if(!($result)){
+    echo "insert error!";
 }
-$sql2 = "INSERT INTO record (number, userID) VALUES ('$number', '$currentUserID')";
-$result2 = mysqli_query($link, $sql2);
-//calculate the carbon
 
-$input = array($_GET['stick'], $_GET['bag'], $_GET['straw'], $_GET['cup'], $_GET['spoon'], $_GET['paper']);
+$sql = "SELECT MAX(recordID) AS nowID FROM record WHERE userID = '$currentUserID'";
+$result = mysqli_query($link, $sql);
+$row = mysqli_fetch_assoc($result);
+$nowID = $row['nowID'];
+//calculate the carbon
+    $input = [];
+    for($j = 0; $j < count($name); $j++){
+        $input[$j] = $_GET[$name[$j]];
+    }
+    $tablewareCarbon = 0;
     for($i = 0; $i < count($input); $i++){
         if($input[$i] != 0){
-        $tablewarePointDeduction++;
+            $tablewarePointDeduction++;
         }
+        $carbonDetail = $input[$i] * $value[$i];
+        $tablewareCarbon += $carbonDetail;
+        $sql = "INSERT INTO recorddetail (recordID, itemID, count, carbonDetail) VALUES ('$nowID', '$ID[$i]', '$input[$i]', '$carbonDetail')";
+        $result = mysqli_query($link, $sql);
+        if(!($result)){
+            echo "recordDetail error!";
+        }
+
+
+
     }
-$tablewareCarbon = $input[0] * $value['stick'] + $input[1] * $value['bag'] + $input[2] * $value['straw'] + $input[3] * $value['cup'] + $input[4] * $value['spoon'] + $input[5] * $value['paper'];
-$sql3 = "UPDATE record set getPoint = getPoint - $tablewarePointDeduction, tablewareCarbon = '$tablewareCarbon' WHERE number = '$number' and userID = '$currentUserID'";
+$sql3 = "UPDATE record set getPoint = getPoint - $tablewarePointDeduction, tablewareCarbon = '$tablewareCarbon' WHERE recordID = '$nowID'";
 $result3 = mysqli_query($link, $sql3);
 
 //locate to count_2.php

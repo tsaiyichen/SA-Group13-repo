@@ -109,6 +109,9 @@
                         <!-- Single Progress Bar -->
                         <canvas id="myChart"></canvas>
                         <script src="myChart.js"></script>
+                        <br><br>
+                        <canvas id="reduceChart"></canvas>
+                        <script src="reduceChart.js"></script>
                         <form action="count2.php" method="get">
                                                 <input type="hidden" value="display" name="display">
                                                 <input type="hidden" value="<?php echo date('Y-m-d');?>" name="currentDate">
