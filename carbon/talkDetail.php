@@ -108,15 +108,6 @@
 
 
                     <?php
-                    $link = @mysqli_connect('localhost', 'root', '12345678', 'sa');
-                    // 檢查是否有傳遞 articleID 參數
-                    if (isset($_GET['articleID'])) {
-                        $articleID = $_GET['articleID'];
-
-                        // 更新資料庫中的點擊數
-                        $updateQuery = "UPDATE article SET click = click + 1 WHERE articleID = $articleID";
-                        mysqli_query($link, $updateQuery);
-                    }
                     $sql = "SELECT * FROM article, account WHERE articleID = '$articleID' AND article.userID = account.userID";
                     $result = mysqli_query($link, $sql);
                     $row = mysqli_fetch_assoc($result);
@@ -149,7 +140,6 @@
                             </tbody>
 
                         </table>
-                        <p>文章點擊數：<?php echo $row['click']; ?></p>
                         <?php if($_SESSION['userID'] == $row['userID']){
                         ?>
                         <form action="talkUpdate.php" method="GET">

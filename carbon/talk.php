@@ -123,7 +123,7 @@ $result = mysqli_query($link, $sql);
                                 echo '<tr>';
                                 echo '<td><a href="talkDetail.php?articleID=' . $articleID . '"><h6>'.$row['title']."</h6></a><td>";
                                 echo "<td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>";
-                                echo "<td><p>文章點擊數：".$row['click']."次</p><td></tr>";
+                                echo "<td><p>發布時間：<br>".$row['time']."</p><td></tr>";
                                 }
                                 ?>
 
