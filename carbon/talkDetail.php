@@ -108,6 +108,8 @@
 
 
                     <?php
+                    $link = mysqli_connect('localhost', 'root', '12345678', 'sa');
+                    $articleID = $_GET['articleID'];
                     $sql = "SELECT * FROM article, account WHERE articleID = '$articleID' AND article.userID = account.userID";
                     $result = mysqli_query($link, $sql);
                     $row = mysqli_fetch_assoc($result);

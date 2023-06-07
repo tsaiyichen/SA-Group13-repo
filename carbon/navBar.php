@@ -54,7 +54,7 @@ if($_SESSION['level'] == 'user'){
                                     <li><a href="#">資訊</a>
                                         <ul class="dropdown">
                                             <li><a href="shopNews.php">公告</a></li>
-                                            <li><a href="information.php">相關資訊</a></li>
+                                            <li><a href="info.php">相關資訊</a></li>
                                             <li><a href="talk.php">討論區</a></li>
                                         </ul>
                                     </li>
@@ -63,6 +63,7 @@ if($_SESSION['level'] == 'user'){
                                         <ul class="dropdown">
                                             <li><a href="announce.php">怪獸商店公告發佈</a></li>
                                             <li><a href="goods.php">新商品發佈</a></li>
+                                            <li><a href="upInfo.php">環保資訊發佈</a></li>
                                             <li><a href="picture.php">怪獸圖鑑管理</a></li>
                                             <li><a href="level.php">權限管理</a></li>
                                         </ul>
