@@ -1,3 +1,5 @@
+<?php session_start();
+$link = @mysqli_connect('localhost', 'root', '12345678', 'sa'); ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -16,28 +18,10 @@
 
     <!-- Core Stylesheet -->
     <link rel="stylesheet" href="style.css">
-    <style>
-          dialog {
-            border-radius: 10px;
-            width: 80%;
-            max-width: 500px;
-            margin: auto;
-            padding: 20px;
-            box-sizing: border-box;
-          }
-        </style>
 
 </head>
 
 <body>
-<?php
-
-session_start();
-$link = @mysqli_connect('localhost', 'root', '12345678', 'sa');
-
-$sql = "select * from information";
-$result = mysqli_query($link, $sql);
-?>
     <!-- Preloader -->
     <div class="preloader d-flex align-items-center justify-content-center">
         <div class="preloader-circle"></div>
@@ -48,9 +32,6 @@ $result = mysqli_query($link, $sql);
 
     <!-- ##### Header Area Start ##### -->
     <header class="header-area">
-
-
-
         <!-- ***** Navbar Area ***** -->
         <div class="alazea-main-menu">
             <div class="classy-nav-container breakpoint-off">
@@ -75,7 +56,7 @@ $result = mysqli_query($link, $sql);
                             </div>
 
                             <!-- Navbar Start -->
-                            <?php include "navBar.php";?>
+                            <?php include "navBar.php" ?>
                             <!-- Navbar End -->
                         </div>
                     </nav>
@@ -83,7 +64,8 @@ $result = mysqli_query($link, $sql);
                     <!-- Search Form -->
                     <div class="search-form">
                         <form action="#" method="get">
-                            <input type="search" name="search" id="search" placeholder="Type keywords &amp; press enter...">
+                            <input type="search" name="search" id="search"
+                                placeholder="Type keywords &amp; press enter...">
                             <button type="submit" class="d-none"></button>
                         </form>
                         <!-- Close Icon -->
@@ -98,8 +80,9 @@ $result = mysqli_query($link, $sql);
     <!-- ##### Breadcrumb Area Start ##### -->
     <div class="breadcrumb-area">
         <!-- Top Breadcrumb Area -->
-        <div class="top-breadcrumb-area bg-img bg-overlay d-flex align-items-center justify-content-center" style="background-image: url(img/bg-img/24.jpg);">
-            <h2>最新環保資訊</h2>
+        <div class="top-breadcrumb-area bg-img bg-overlay d-flex align-items-center justify-content-center"
+            style="background-image: url(img/bg-img/24.jpg);">
+            <h2></h2>
         </div>
 
         <div class="container">
@@ -107,8 +90,8 @@ $result = mysqli_query($link, $sql);
                 <div class="col-12">
                     <nav aria-label="breadcrumb">
                         <ol class="breadcrumb">
-                            <li class="breadcrumb-item"><a href="#"><i class="fa fa-home"></i> 首頁</a></li>
-                            <li class="breadcrumb-item active" aria-current="page">最新環保資訊</li>
+                            <li class="breadcrumb-item"><a href="#"><i class="fa fa-home"></i>首頁</a></li>
+                            <li class="breadcrumb-item active" aria-current="page">最新環保資訊發佈</li>
                         </ol>
                     </nav>
                 </div>
@@ -116,69 +99,61 @@ $result = mysqli_query($link, $sql);
         </div>
     </div>
     <!-- ##### Breadcrumb Area End ##### -->
-	<style>
-		.rectangle {
-			display: inline-block;
-			float: left;
-			margin-left: 200px;
-			margin-top: -150px;
 
-			width: 200px;
-			height: 100px;
-			background-color: #5ec542;
-			text-align: center;
-			line-height: 100px;
-			font-size: 30px;
-			color: white;
-			border-radius: 5px;
-
-		}
-
-		.centered-text {
-			font-size: 1000%;
-			text-align: center;
-			line-height: 20px;
-            margin-left: 70px;
-			margin-top: 20px;
-		}
-	</style>
     <!-- ##### Contact Area Info Start ##### -->
-    <section class="bg-white py-10">
-    <div class="container px-10 my-10">
-            <div class="row gx-5 justify-content-center">
-                <!-- Pricing card free-->
-                <table class="table table-hover" background="">
-                    <thead>
-                        <tr>
-                          <th scope="col">#</th>
-                          <th scope="col">標題</th>
-                          <th scope="col">日期</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                    <?php while ($row = mysqli_fetch_assoc($result)) { ?>
-                        <tr>
-                          <th scope="row"><?php echo $row["infoID"]; ?></th>
-                          <td><u><a href="infoDetail.php?infoID=<?php echo $row['infoID']?>">
-                                    <?php echo $row["title"]; ?>
-                          </a>
-                          </u>
-                          </td>
-                          <td><?php echo $row["time"]; ?></td>
-                        </tr>
+    <div class="contact-area-info section-padding-0-100">
+        <div class="container">
+            <div class="row align-items-center justify-content-between">
+                <!-- Contact Thumbnail -->
+                <div class="col-12 col-md-6">
 
-                            <?php } ?>
+                    <img src="img/bg-img/25.jpg" alt="">
 
-                    </tbody>
-                </table>
-    </section>
-    <!-- ##### Checkout Area End ##### -->
+                </div>
+                <?php
 
+                $infoID = $_GET["infoID"];
+
+                $sql = "select * from information where infoID = $infoID";
+                $result = mysqli_query($link, $sql);
+
+                if ($row = mysqli_fetch_assoc($result)) {
+                    $title = $row['title'];
+                    $content = $row['content'];
+
+                }
+                ?>
+
+                <div class="col-12 col-md-6">
+                    <!-- Section Heading -->
+                    <div class="section-heading">
+
+
+                        <form method="GET" action="infoUpdate_b.php" style="font-size: 20px;"><br><br>
+                            <input type="hidden" name="infoID" value="<?php echo $infoID; ?>">
+                            標題：<br>
+                            <input name='title' type="text" value="<?php echo $title; ?>"
+                                style="width:450px;"><br><br>
+                            內文：<br>
+                            <input name="content" value="<?php echo $content; ?>"
+                                style="width:450px;height:100px;"><br><br>
+
+
+                            <input type="submit" value="修改"
+                                style="width: 70px;height: 40px; border-radius: 4px;background-color: #70c745; color: white; border-color:#DDDDDD ;">
+                        </form>
+
+                    </div>
+                    <!-- Contact Information -->
+                    <div class="contact-information">
+
+                    </div>
                 </div>
             </div>
         </div>
     </div>
     <!-- ##### Contact Area Info End ##### -->
+
 
 
     <!-- ##### All Javascript Files ##### -->
