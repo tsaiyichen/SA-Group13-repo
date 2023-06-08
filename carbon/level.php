@@ -7,7 +7,6 @@ $link = @mysqli_connect('localhost', 'root', '12345678', 'sa');
 
 $sql = "select * from account;";
 $result = mysqli_query($link, $sql);
-$row = mysqli_fetch_assoc($result);
 
 ?>
 

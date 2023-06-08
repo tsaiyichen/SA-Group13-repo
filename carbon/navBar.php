@@ -21,7 +21,7 @@ if($_SESSION['level'] == 'user'){
                                     <li><a href="#">資訊</a>
                                         <ul class="dropdown">
                                             <li><a href="shopNews.php">公告</a></li>
-                                            <li><a href="information.php">相關資訊</a></li>
+                                            <li><a href="info.php">相關資訊</a></li>
                                             <li><a href="talk.php">討論區</a></li>
                                         </ul>
                                     </li>

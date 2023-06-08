@@ -6,7 +6,7 @@ $sql = "SELECT * FROM record WHERE userID = '$currentUserID'";
 $sql2 = "SELECT * FROM item WHERE itemType = '$type'";
 $result = mysqli_query($link, $sql);
 $result2 = mysqli_query($link, $sql2);
-
+if(isset($type)){
 if($type != '0'){
 if($type == 'sum'){
     while($row = mysqli_fetch_assoc($result)){
@@ -112,5 +112,5 @@ $nowID = $row['recordID'];
                         </tbody>
                     </table>
 <?php
-}}}
+}}}}
 ?>
