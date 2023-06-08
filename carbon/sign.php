@@ -81,7 +81,7 @@
 
     <!-- ##### Hero Area Start ##### -->
     <section class="hero-area">
-        <div class="hero-post-slides owl-carousel">
+        <div>
 
             <!-- Single Hero Post -->
             <div class="single-hero-post bg-overlay">
